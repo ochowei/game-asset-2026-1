@@ -44,6 +44,9 @@ importers:
       '@procforge/theme-medieval-fantasy':
         specifier: workspace:*
         version: link:../themes/medieval-fantasy
+      '@procforge/theme-sci-fi':
+        specifier: workspace:*
+        version: link:../themes/sci-fi
       '@resvg/resvg-js':
         specifier: ^2.6.2
         version: 2.6.2
@@ -81,6 +84,19 @@ importers:
         version: 2.1.9(@types/node@22.19.17)
 
   packages/themes/medieval-fantasy:
+    dependencies:
+      '@procforge/core':
+        specifier: workspace:*
+        version: link:../../core
+    devDependencies:
+      tsup:
+        specifier: ^8.3.0
+        version: 8.5.1(postcss@8.5.12)(tsx@4.21.0)(typescript@5.9.3)
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9(@types/node@22.19.17)
+
+  packages/themes/sci-fi:
     dependencies:
       '@procforge/core':
         specifier: workspace:*

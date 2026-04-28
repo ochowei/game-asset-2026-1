@@ -1,10 +1,12 @@
 import mri from 'mri';
 import { generateBatch } from './generate';
 import { medievalFantasy } from '@procforge/theme-medieval-fantasy';
+import { sciFi } from '@procforge/theme-sci-fi';
 import type { Theme } from '@procforge/core';
 
 const THEMES: Record<string, Theme> = {
   'medieval-fantasy': medievalFantasy,
+  'sci-fi': sciFi,
 };
 
 async function main(): Promise<void> {
