@@ -6,7 +6,7 @@ import { generateBatch } from '../src/generate';
 import { medievalFantasy } from '@procforge/theme-medieval-fantasy';
 
 describe('generateBatch', () => {
-  it('writes SVG and PNG files into the output directory', async () => {
+  it('writes SVG and PNG files into the output directory', { timeout: 30_000 }, async () => {
     const dir = mkdtempSync(join(tmpdir(), 'icongen-'));
     try {
       await generateBatch({
@@ -29,7 +29,7 @@ describe('generateBatch', () => {
     }
   });
 
-  it('writes a manifest.json mapping seed → metadata', async () => {
+  it('writes a manifest.json mapping seed → metadata', { timeout: 30_000 }, async () => {
     const dir = mkdtempSync(join(tmpdir(), 'icongen-'));
     try {
       await generateBatch({

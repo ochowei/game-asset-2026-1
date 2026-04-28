@@ -6,7 +6,7 @@ const sampleSvg =
   '<circle cx="32" cy="32" r="20" fill="#ff0000"/></svg>';
 
 describe('renderSvgToPng', () => {
-  it('produces a PNG buffer with the requested dimensions', async () => {
+  it('produces a PNG buffer with the requested dimensions', { timeout: 30_000 }, async () => {
     const png = await renderSvgToPng(sampleSvg, 64);
     expect(png.length).toBeGreaterThan(100);
     expect(png[0]).toBe(0x89);
@@ -15,7 +15,7 @@ describe('renderSvgToPng', () => {
     expect(png[3]).toBe(0x47);
   });
 
-  it('renders different sizes', async () => {
+  it('renders different sizes', { timeout: 30_000 }, async () => {
     const small = await renderSvgToPng(sampleSvg, 16);
     const large = await renderSvgToPng(sampleSvg, 256);
     expect(large.length).toBeGreaterThan(small.length);

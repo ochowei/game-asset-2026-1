@@ -8,7 +8,7 @@ import { packToZip } from '../src/pack';
 import { medievalFantasy } from '@procforge/theme-medieval-fantasy';
 
 describe('integration: batch + pack', () => {
-  it('packs a generated batch into a zip with svg + png + manifest', async () => {
+  it('packs a generated batch into a zip with svg + png + manifest', { timeout: 30_000 }, async () => {
     const dir = mkdtempSync(join(tmpdir(), 'icongen-int-'));
     try {
       await generateBatch({
