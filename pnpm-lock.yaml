@@ -8,12 +8,24 @@ importers:
 
   .:
     devDependencies:
+      '@procforge/cli':
+        specifier: workspace:*
+        version: link:packages/cli
       '@procforge/core':
         specifier: workspace:*
         version: link:packages/core
+      '@procforge/theme-cozy-farm':
+        specifier: workspace:*
+        version: link:packages/themes/cozy-farm
       '@procforge/theme-medieval-fantasy':
         specifier: workspace:*
         version: link:packages/themes/medieval-fantasy
+      '@procforge/theme-roguelike-inventory':
+        specifier: workspace:*
+        version: link:packages/themes/roguelike-inventory
+      '@procforge/theme-sci-fi':
+        specifier: workspace:*
+        version: link:packages/themes/sci-fi
       '@types/node':
         specifier: ^22.7.0
         version: 22.19.17
@@ -26,6 +38,9 @@ importers:
       eslint:
         specifier: ^9.10.0
         version: 9.39.4
+      jszip:
+        specifier: ^3.10.1
+        version: 3.10.1
       prettier:
         specifier: ^3.3.0
         version: 3.8.3
