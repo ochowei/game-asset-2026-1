@@ -3,3 +3,4 @@ export * from './seed';
 export * from './palette';
 export * from './svg-emitter';
 export * from './primitives';
+export * from './composers';
