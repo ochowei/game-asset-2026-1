@@ -21,6 +21,7 @@
     "@procforge/theme-medieval-fantasy": "workspace:*",
     "@procforge/theme-sci-fi": "workspace:*",
     "@procforge/theme-cozy-farm": "workspace:*",
+    "@procforge/theme-roguelike-inventory": "workspace:*",
     "@resvg/resvg-js": "^2.6.2",
     "jszip": "^3.10.1",
     "mri": "^1.2.0"
