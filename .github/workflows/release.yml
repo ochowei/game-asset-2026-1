@@ -1,0 +1,36 @@
+name: release
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm produce-pack
+      - name: Build web preview HTML5 zip
+        run: |
+          pnpm --filter @procforge/web-preview build
+          cd packages/web-preview/dist
+          zip -r ../../../web-preview-html5.zip .
+      - name: Create GitHub Release with assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            starter-pack.zip
+            web-preview-html5.zip
+          generate_release_notes: true
+          fail_on_unmatched_files: true

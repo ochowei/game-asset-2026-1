@@ -1,0 +1,17 @@
+node_modules/
+.pnpm-store/
+dist/
+*.log
+.DS_Store
+.vite/
+coverage/
+starter-pack/svg/
+starter-pack/png/
+starter-pack/manifest.json
+starter-pack/index.html
+starter-pack.zip
+.smoke-medieval/
+.smoke-cli/
+.qa-sample/
+packages/web-preview/web-preview-html5.zip
+packages/web-preview/dist/

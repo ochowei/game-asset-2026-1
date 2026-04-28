@@ -6,7 +6,7 @@
 
 **Architecture:** pnpm monorepo. `@procforge/core` is a pure SVG-emitting library (no IO). Themes are plug-in packages that register primitives, palette, and composers. `@procforge/cli` provides batch generation, SVG→PNG rasterising, and zip packaging. `@procforge/web-preview` is a Vite SPA that loads the same core in the browser for itch HTML5 embedding.
 
-**Tech Stack:** TypeScript, pnpm workspaces, Vitest, tsup (CLI/library builds), Vite (web preview), seedrandom (deterministic RNG), resvg-js (SVG→PNG), JSZip (packaging), Node ≥ 20.
+**Tech Stack:** TypeScript, pnpm workspaces, Vitest, tsup (CLI/library builds), Vite (web preview), seedrandom (deterministic RNG), resvg-js (SVG→PNG), JSZip (packaging), Node ≥ 22.
 
 **Out of scope (for this plan):**
 - Cover image / demo GIF / screenshot production (manual design work, separate runbook).
@@ -197,7 +197,7 @@ docs/
 - [ ] **Step 1: Verify Node + pnpm versions**
 
 Run: `node --version && pnpm --version`
-Expected: Node ≥ 20, pnpm ≥ 9. If pnpm missing: `npm i -g pnpm@9`.
+Expected: Node ≥ 22, pnpm ≥ 9. If pnpm missing: `npm i -g pnpm@9`.
 
 - [ ] **Step 2: Write `package.json`**
 
@@ -207,7 +207,7 @@ Expected: Node ≥ 20, pnpm ≥ 9. If pnpm missing: `npm i -g pnpm@9`.
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": { "node": ">=22" },
   "packageManager": "pnpm@9.12.0",
   "scripts": {
     "build": "pnpm -r --filter './packages/**' build",
@@ -217,7 +217,7 @@ Expected: Node ≥ 20, pnpm ≥ 9. If pnpm missing: `npm i -g pnpm@9`.
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@types/node": "^20.14.0",
+    "@types/node": "^22.7.0",
     "eslint": "^9.10.0",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
@@ -363,7 +363,7 @@ jobs:
         with: { version: 9 }
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
@@ -2308,7 +2308,7 @@ git commit -m "chore: end-to-end smoke script for medieval theme"
     "mri": "^1.2.0"
   },
   "devDependencies": {
-    "@types/node": "^20.14.0",
+    "@types/node": "^22.7.0",
     "tsup": "^8.3.0",
     "vitest": "^2.1.0"
   }
@@ -4788,7 +4788,7 @@ jobs:
         with: { version: 9 }
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck

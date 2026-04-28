@@ -1,0 +1,84 @@
+# Procforge Icons — Architecture
+
+## Package map
+
+```
+@procforge/core
+  └─ pure SVG-emitting library; no IO, no DOM, no Node-specific APIs
+@procforge/theme-*
+  └─ thin packages that register a palette + theme metadata; depend on core
+@procforge/cli
+  └─ Node CLI for batch generation, SVG→PNG rasterising, zip packaging
+@procforge/web-preview
+  └─ Vite SPA that runs core in the browser; itch HTML5 embeddable
+```
+
+## Data flow
+
+```
+config (theme + seed + count + size)
+        │
+        ▼
+makeRng(theme.id + seed)            ← deterministic per-icon RNG
+        │
+        ▼
+pick(rng, theme.composers)          ← one composer per icon
+        │
+        ▼
+composer(ctx { rng, palette, size, primitives })
+   └─ pick + invoke primitives, combine via SVG groups/masks
+        │
+        ▼
+SVG body string
+        │
+        ▼
+svgDocument({ size, body })          ← wraps in <svg viewBox …>
+        │
+        ▼
+Either:
+   - returned as string (core API)
+   - written to disk + rasterised to PNG (CLI)
+   - injected into DOM + downloadable (web-preview)
+```
+
+## Determinism
+
+`(theme.id, seed)` determines:
+1. The RNG sequence (`makeRng(theme.id + ":" + seed)`).
+2. Which composer is selected.
+3. Which primitives are sampled inside the composer.
+4. All numeric jitter inside primitives.
+
+Therefore the SVG output is byte-identical across runs given the same theme module. This guarantee breaks when a theme's primitives, composers, or palette change.
+
+## Why TypeScript and not Python/Rust
+
+- The generator must run in the browser (for the itch HTML5 embed) and in Node (for the CLI). One language, one codebase.
+- Buyers reading the source are mostly game devs comfortable with JS.
+- SVG is a string-manipulation problem and TS handles it well.
+
+## Why a monorepo
+
+- Core + themes evolve in lock-step; one PR can change a primitive and a theme that depends on it.
+- Phase 2 expansion packs ship as new packages without touching core.
+- pnpm workspaces give us instant cross-package linking with no publish step.
+
+## Why hand-written SVG strings (not d3-ish builder)
+
+- Output size: a manually-written `<circle .../>` is shorter than a builder-emitted equivalent.
+- Buyer-readability: the source code looks like the SVG, which is what buyers wanting to fork expect.
+- Zero runtime cost: no DOM, no virtual DOM, no parser.
+
+## Testing strategy
+
+- **Primitives:** structural assertions on emitted SVG (correct tag, attributes present, points in bounds) + determinism.
+- **Composers:** structural assertions on group / mask wrapping + child count.
+- **Theme:** generates N icons without throwing + uniqueness.
+- **CLI:** ephemeral temp directory + assertions on file structure + PNG magic-number checks.
+- **Web preview:** dev-server visual smoke (manual). Headless browser tests are deferred to Phase 2.
+
+## Phase 2 enabler hooks
+
+- `Theme` is plug-in shape: new themes ship as packages without touching core.
+- `CLI THEMES` map is the only place a theme is registered for the bundled CLI; external themes load via dynamic import in Phase 2.
+- `manifest.json` schema is stable; expansion packs reuse it.
