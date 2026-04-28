@@ -12,3 +12,5 @@ starter-pack/index.html
 starter-pack.zip
 .smoke-medieval/
 .smoke-cli/
+packages/web-preview/web-preview-html5.zip
+packages/web-preview/dist/
