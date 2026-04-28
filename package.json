@@ -13,7 +13,8 @@
     "typecheck": "pnpm -r --filter './packages/**' typecheck",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "produce-pack": "tsx scripts/produce-starter-pack.ts"
+    "produce-pack": "tsx scripts/produce-starter-pack.ts",
+    "qa-sample": "tsx scripts/visual-qa-sample.ts"
   },
   "devDependencies": {
     "@procforge/cli": "workspace:*",
