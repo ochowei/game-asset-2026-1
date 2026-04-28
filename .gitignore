@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.vite/
+coverage/
+starter-pack/svg/
+starter-pack/png/
+starter-pack/manifest.json
+starter-pack/index.html
+starter-pack.zip
