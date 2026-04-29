@@ -14,7 +14,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "produce-pack": "tsx scripts/produce-starter-pack.ts",
-    "qa-sample": "tsx scripts/visual-qa-sample.ts"
+    "qa-sample": "tsx scripts/visual-qa-sample.ts",
+    "prelaunch-check": "tsx scripts/prelaunch-check.ts"
   },
   "devDependencies": {
     "@procforge/cli": "workspace:*",
