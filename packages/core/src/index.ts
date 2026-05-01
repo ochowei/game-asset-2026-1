@@ -6,3 +6,4 @@ export * from './primitives';
 export * from './composers';
 export * from './theme';
 export * from './generator';
+export * from './numeric';
