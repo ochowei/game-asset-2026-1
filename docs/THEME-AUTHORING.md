@@ -48,32 +48,25 @@ const palette = definePalette({
 
 Procforge ships these in `@procforge/core`:
 
-- Primitives: `circle`, `polygon`, `path`, `star`
-- Composers: `layer`, `mask`
+- **Decoration primitives:** `circle`, `polygon`, `path`, `star` — generic geometric shapes used by the `subject` composer as background flourishes behind a subject.
+- **Subject composer:** `subject` — places one of the theme's subject primitives at the centre and adds 0–2 decoration primitives behind it. This is what every Phase 1 starter theme uses.
+- **Legacy composers:** `layer`, `mask` — kept exported for expansion-pack themes that want pure abstract output. Phase 1 themes do not register them.
 
-Most themes can use all of them. To bias toward a style, omit some.
+A Phase 1-style theme defines its own **subject primitives** (theme-specific game objects: a sword, a potion bottle, a blaster) and registers only the `subject` composer.
 
 ## 4. Define the theme
 
 ```ts
-import {
-  defineTheme,
-  circle,
-  polygon,
-  path,
-  star,
-  layer,
-  mask,
-  type Theme,
-} from '@procforge/core';
+import { defineTheme, definePalette, subject, type Theme } from '@procforge/core';
+import { swordBlade, potionBottle /* …your 6 subject primitives */ } from './subjects';
 
 export const myTheme: Theme = defineTheme({
   id: 'my-theme',
   displayName: 'My Theme',
   palette,
-  primitives: [circle, polygon, path, star],
-  composers: [layer, mask],
-  tags: ['weapon', 'fantasy'],   // game-relevant search keywords
+  primitives: [swordBlade, potionBottle /* …6 total */],   // theme-specific subjects
+  composers: [subject],                                    // single composer
+  tags: ['weapon', 'fantasy'],
 });
 ```
 
@@ -103,25 +96,40 @@ Run: `pnpm --filter @procforge/theme-<your-theme> test`.
 
 To make your theme selectable via `icongen --theme <id>`, add to `packages/cli/package.json` deps and `packages/cli/src/cli.ts` THEMES map. Phase 2 will support `--theme path/to/external-theme` for unbundled themes.
 
-## 7. Write a custom primitive (advanced)
+## 7. Write a subject primitive
 
-A primitive is `(ctx) => string` returning one SVG element. Example:
+A subject primitive is `(ctx) => string` returning a single `<g>...</g>` SVG fragment that depicts one game object. Example:
 
 ```ts
-import type { PrimitiveFn } from '@procforge/core';
-import { svgElement } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
 
 export const ring: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
-  const r = size * 0.3;
-  return svgElement('circle', {
-    cx: centerX,
-    cy: centerY,
-    r,
-    fill: 'none',
-    stroke: palette.accent[0]!,
-    'stroke-width': strokeWidth * 2,
-  });
+  const stroke = pickColor(rng, palette, 'neutral');
+  const fill = pickColor(rng, palette, 'accent');
+  const r = range(rng, size * 0.22, size * 0.3);
+  return svgElement(
+    'g',
+    {},
+    svgElement('circle', {
+      cx: round2(centerX),
+      cy: round2(centerY),
+      r: round2(r),
+      fill: 'none',
+      stroke,
+      'stroke-width': strokeWidth * 1.5,
+    }),
+  );
 };
 ```
 
-Add it to your theme's `primitives` array.
+**Subject contract** (matches `docs/superpowers/specs/2026-05-01-game-oriented-primitives-design.md` §3.4):
+
+- Returns a single `<g>` wrapping all sub-elements.
+- Coordinates stay inside `[size * 0.1, size * 0.9]`.
+- Stroke colour from `palette.neutral`. Body fill from `palette.primary` ∪ `palette.accent`.
+- **Stroke-only silhouette exception:** if the primitive's visual identity is a line drawing (HUD reticle, antenna mast, wire ring), every sub-element may use `fill="none"`. Compensate by drawing strokes at ≥ 1.2× the base `strokeWidth` so the silhouette still reads as solid.
+- `stroke-linejoin="round"` and `stroke-linecap="round"` where applicable.
+- Use `round2(n)` from `@procforge/core` for emitted coordinate values.
+- Internal jitter (proportions, rotation, segment counts) consumes RNG so different seeds produce visibly different output. Two identical seeds must produce byte-identical output.
+
+Add it to your theme's `primitives` array. Aim for 6 subjects per theme — enough variety, balanced authoring effort.

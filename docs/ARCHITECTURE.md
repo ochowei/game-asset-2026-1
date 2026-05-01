@@ -82,3 +82,11 @@ Therefore the SVG output is byte-identical across runs given the same theme modu
 - `Theme` is plug-in shape: new themes ship as packages without touching core.
 - `CLI THEMES` map is the only place a theme is registered for the bundled CLI; external themes load via dynamic import in Phase 2.
 - `manifest.json` schema is stable; expansion packs reuse it.
+
+## Determinism baseline
+
+The deterministic-output guarantee is byte-stable from a baseline. Adding or changing primitives, composers, or palette entries in any theme breaks the byte-identity for that theme — `(theme.id, seed)` after the change will produce a different SVG than before.
+
+The current baseline began with the introduction of theme-specific subject primitives (see `docs/superpowers/specs/2026-05-01-game-oriented-primitives-design.md`). Earlier abstract output produced before this baseline is not regenerable from the same seeds.
+
+Future theme-content changes (palette tweaks, new primitives) reset the baseline again. Document any baseline reset in CHANGELOG / release notes so buyers who depend on specific seeds are aware.
