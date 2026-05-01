@@ -78,4 +78,23 @@ describe('subject composer', () => {
       subject({ rng: makeRng('s'), palette, size: 64, primitives: [] }),
     ).toThrow();
   });
+
+  it('scales decorations smaller than the subject (decorations within size*0.6 bbox around their centre)', () => {
+    // Render with a real primitive (circle) as the subject, sample many seeds, and
+    // confirm decoration <circle> radii are bounded.
+    for (let i = 0; i < 200; i++) {
+      const out = subject({
+        rng: makeRng(`s${i}`),
+        palette,
+        size: 64,
+        primitives: [fakeSubject],
+      });
+      // The fake subject doesn't emit <circle>, so any <circle> in the output is a decoration.
+      // Decorations should now produce r values bounded by `decorationSize * 0.4` ≈ 12.8.
+      for (const m of out.matchAll(/<circle\b[^>]*\br="([^"]+)"/g)) {
+        const r = parseFloat(m[1]!);
+        expect(r).toBeLessThan(13); // 64 * 0.5 * 0.4 = 12.8, with small float tolerance
+      }
+    }
+  });
 });

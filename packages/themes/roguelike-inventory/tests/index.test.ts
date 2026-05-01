@@ -6,14 +6,16 @@ describe('roguelikeInventory theme', () => {
   it('exports a Theme with id "roguelike-inventory"', () => {
     expect(roguelikeInventory.id).toBe('roguelike-inventory');
   });
-  it('produces 50 SVGs', () => {
+  it('produces 50 unique SVGs via generateMany', () => {
     const items = generateMany({
       theme: roguelikeInventory,
-      baseSeed: 'r',
+      baseSeed: 'rl',
       count: 50,
       size: 64,
     });
     expect(items).toHaveLength(50);
+    const uniq = new Set(items.map((i) => i.svg));
+    expect(uniq.size).toBeGreaterThan(40);
     expect(generateOne({ theme: roguelikeInventory, seed: 'x', size: 64 }).startsWith('<svg ')).toBe(
       true,
     );

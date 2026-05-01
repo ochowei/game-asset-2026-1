@@ -8,9 +8,11 @@ describe('sciFi theme', () => {
     expect(sciFi.displayName).toMatch(/sci/i);
   });
 
-  it('produces 50 SVGs', () => {
-    const items = generateMany({ theme: sciFi, baseSeed: 's', count: 50, size: 64 });
+  it('produces 50 unique SVGs via generateMany', () => {
+    const items = generateMany({ theme: sciFi, baseSeed: 'sf', count: 50, size: 64 });
     expect(items).toHaveLength(50);
+    const uniq = new Set(items.map((i) => i.svg));
+    expect(uniq.size).toBeGreaterThan(40);
     expect(generateOne({ theme: sciFi, seed: 'x', size: 64 }).startsWith('<svg ')).toBe(true);
   });
 
