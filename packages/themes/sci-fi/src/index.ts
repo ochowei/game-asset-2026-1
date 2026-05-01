@@ -1,14 +1,12 @@
+import { defineTheme, definePalette, subject, type Theme } from '@procforge/core';
 import {
-  defineTheme,
-  definePalette,
-  circle,
-  polygon,
-  path,
-  star,
-  layer,
-  mask,
-  type Theme,
-} from '@procforge/core';
+  blasterBody,
+  chipBoard,
+  energyOrb,
+  hudFrame,
+  cogGear,
+  antennaArray,
+} from './subjects';
 
 const palette = definePalette({
   id: 'sci-fi',
@@ -22,7 +20,7 @@ export const sciFi: Theme = defineTheme({
   id: 'sci-fi',
   displayName: 'Sci-Fi / Cyberpunk',
   palette,
-  primitives: [circle, polygon, path, star],
-  composers: [layer, mask],
+  primitives: [blasterBody, chipBoard, energyOrb, hudFrame, cogGear, antennaArray],
+  composers: [subject],
   tags: ['hud', 'gun', 'chip', 'energy', 'sci-fi', 'cyberpunk'],
 });

@@ -1,14 +1,12 @@
+import { defineTheme, definePalette, subject, type Theme } from '@procforge/core';
 import {
-  defineTheme,
-  definePalette,
-  circle,
-  polygon,
-  path,
-  star,
-  layer,
-  mask,
-  type Theme,
-} from '@procforge/core';
+  hoeTool,
+  fruit,
+  seedPouch,
+  animalHead,
+  wateringCan,
+  wheatStalk,
+} from './subjects';
 
 const palette = definePalette({
   id: 'cozy-farm',
@@ -22,7 +20,7 @@ export const cozyFarm: Theme = defineTheme({
   id: 'cozy-farm',
   displayName: 'Cozy Farm',
   palette,
-  primitives: [circle, polygon, path, star],
-  composers: [layer, mask],
+  primitives: [hoeTool, fruit, seedPouch, animalHead, wateringCan, wheatStalk],
+  composers: [subject],
   tags: ['food', 'seed', 'tool', 'animal', 'cozy', 'farm'],
 });

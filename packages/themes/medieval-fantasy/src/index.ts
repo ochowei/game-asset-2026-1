@@ -1,14 +1,12 @@
+import { defineTheme, definePalette, subject, type Theme } from '@procforge/core';
 import {
-  defineTheme,
-  definePalette,
-  circle,
-  polygon,
-  path,
-  star,
-  layer,
-  mask,
-  type Theme,
-} from '@procforge/core';
+  swordBlade,
+  shieldFrame,
+  potionBottle,
+  scrollRoll,
+  axeHead,
+  gemstone,
+} from './subjects';
 
 const palette = definePalette({
   id: 'medieval-fantasy',
@@ -22,7 +20,7 @@ export const medievalFantasy: Theme = defineTheme({
   id: 'medieval-fantasy',
   displayName: 'Medieval Fantasy',
   palette,
-  primitives: [circle, polygon, path, star],
-  composers: [layer, mask],
+  primitives: [swordBlade, shieldFrame, potionBottle, scrollRoll, axeHead, gemstone],
+  composers: [subject],
   tags: ['weapon', 'potion', 'shield', 'scroll', 'rpg', 'fantasy'],
 });
