@@ -1,4 +1,4 @@
-import { range, pickColor, svgElement, type PrimitiveFn } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
 
 export const shieldFrame: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
@@ -8,18 +8,18 @@ export const shieldFrame: PrimitiveFn = ({ rng, palette, size, centerX, centerY,
   const shoulderY = topY + range(rng, size * 0.05, size * 0.08);
   const bottomY = centerY + range(rng, size * 0.3, size * 0.36);
 
-  const outer = `M ${r(centerX - halfW)} ${r(topY)}
-    Q ${r(centerX)} ${r(topY - halfW * 0.15)} ${r(centerX + halfW)} ${r(topY)}
-    L ${r(centerX + halfW)} ${r(shoulderY + size * 0.18)}
-    Q ${r(centerX)} ${r(bottomY)} ${r(centerX - halfW)} ${r(shoulderY + size * 0.18)}
+  const outer = `M ${round2(centerX - halfW)} ${round2(topY)}
+    Q ${round2(centerX)} ${round2(topY - halfW * 0.15)} ${round2(centerX + halfW)} ${round2(topY)}
+    L ${round2(centerX + halfW)} ${round2(shoulderY + size * 0.18)}
+    Q ${round2(centerX)} ${round2(bottomY)} ${round2(centerX - halfW)} ${round2(shoulderY + size * 0.18)}
     Z`;
   const innerHalfW = halfW * 0.7;
   const innerTopY = topY + size * 0.05;
   const innerBottomY = bottomY - size * 0.06;
-  const inner = `M ${r(centerX - innerHalfW)} ${r(innerTopY)}
-    Q ${r(centerX)} ${r(innerTopY - innerHalfW * 0.12)} ${r(centerX + innerHalfW)} ${r(innerTopY)}
-    L ${r(centerX + innerHalfW)} ${r(innerTopY + size * 0.18)}
-    Q ${r(centerX)} ${r(innerBottomY)} ${r(centerX - innerHalfW)} ${r(innerTopY + size * 0.18)}
+  const inner = `M ${round2(centerX - innerHalfW)} ${round2(innerTopY)}
+    Q ${round2(centerX)} ${round2(innerTopY - innerHalfW * 0.12)} ${round2(centerX + innerHalfW)} ${round2(innerTopY)}
+    L ${round2(centerX + innerHalfW)} ${round2(innerTopY + size * 0.18)}
+    Q ${round2(centerX)} ${round2(innerBottomY)} ${round2(centerX - innerHalfW)} ${round2(innerTopY + size * 0.18)}
     Z`;
 
   return svgElement(
@@ -35,7 +35,3 @@ export const shieldFrame: PrimitiveFn = ({ rng, palette, size, centerX, centerY,
       }),
   );
 };
-
-function r(n: number): number {
-  return Math.round(n * 100) / 100;
-}

@@ -1,4 +1,4 @@
-import { intRange, range, pickColor, svgElement, type PrimitiveFn } from '@procforge/core';
+import { intRange, range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
 
 export const gemstone: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
@@ -11,7 +11,7 @@ export const gemstone: PrimitiveFn = ({ rng, palette, size, centerX, centerY, st
     const a = angleOffset + (i / facets) * Math.PI * 2;
     const x = centerX + Math.cos(a) * radius;
     const y = centerY + Math.sin(a) * radius;
-    points.push(`${r(x)},${r(y)}`);
+    points.push(`${round2(x)},${round2(y)}`);
   }
   const body = svgElement('polygon', {
     points: points.join(' '),
@@ -20,7 +20,7 @@ export const gemstone: PrimitiveFn = ({ rng, palette, size, centerX, centerY, st
     'stroke-width': strokeWidth,
     'stroke-linejoin': 'round',
   });
-  const facetCount = Math.min(facets, 5);
+  const facetCount = facets;
   const facetLines: string[] = [];
   for (let i = 0; i < facetCount; i++) {
     const a = angleOffset + (i / facets) * Math.PI * 2;
@@ -28,10 +28,10 @@ export const gemstone: PrimitiveFn = ({ rng, palette, size, centerX, centerY, st
     const y = centerY + Math.sin(a) * radius;
     facetLines.push(
       svgElement('line', {
-        x1: r(centerX),
-        y1: r(centerY),
-        x2: r(x),
-        y2: r(y),
+        x1: round2(centerX),
+        y1: round2(centerY),
+        x2: round2(x),
+        y2: round2(y),
         stroke,
         'stroke-width': Math.max(1, strokeWidth * 0.5),
         'stroke-linecap': 'round',
@@ -40,7 +40,3 @@ export const gemstone: PrimitiveFn = ({ rng, palette, size, centerX, centerY, st
   }
   return svgElement('g', {}, body + facetLines.join(''));
 };
-
-function r(n: number): number {
-  return Math.round(n * 100) / 100;
-}

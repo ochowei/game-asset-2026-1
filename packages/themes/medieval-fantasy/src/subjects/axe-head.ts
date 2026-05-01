@@ -1,4 +1,4 @@
-import { range, pickColor, svgElement, type PrimitiveFn } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
 
 export const axeHead: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
@@ -13,16 +13,16 @@ export const axeHead: PrimitiveFn = ({ rng, palette, size, centerX, centerY, str
   const bladeBottomY = bladeY + range(rng, size * 0.12, size * 0.18);
 
   const haft = svgElement('line', {
-    x1: r(centerX),
-    y1: r(haftTop),
-    x2: r(centerX),
-    y2: r(haftBottom),
+    x1: round2(centerX),
+    y1: round2(haftTop),
+    x2: round2(centerX),
+    y2: round2(haftBottom),
     stroke: pickColor(rng, palette, 'secondary'),
     'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linecap': 'round',
   });
   const blade = svgElement('polygon', {
-    points: `${r(bladeBack)},${r(bladeTopY)} ${r(bladeOuter)},${r(bladeY)} ${r(bladeBack)},${r(bladeBottomY)}`,
+    points: `${round2(bladeBack)},${round2(bladeTopY)} ${round2(bladeOuter)},${round2(bladeY)} ${round2(bladeBack)},${round2(bladeBottomY)}`,
     fill,
     stroke,
     'stroke-width': strokeWidth,
@@ -31,7 +31,3 @@ export const axeHead: PrimitiveFn = ({ rng, palette, size, centerX, centerY, str
 
   return svgElement('g', {}, haft + blade);
 };
-
-function r(n: number): number {
-  return Math.round(n * 100) / 100;
-}

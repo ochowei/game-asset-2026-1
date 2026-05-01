@@ -1,4 +1,4 @@
-import { range, pickColor, svgElement, type PrimitiveFn } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
 
 export const scrollRoll: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
@@ -10,29 +10,29 @@ export const scrollRoll: PrimitiveFn = ({ rng, palette, size, centerX, centerY, 
   const rightX = centerX + bodyW / 2;
 
   const body = svgElement('rect', {
-    x: r(leftX),
-    y: r(centerY - bodyH / 2),
-    width: r(bodyW),
-    height: r(bodyH),
+    x: round2(leftX),
+    y: round2(centerY - bodyH / 2),
+    width: round2(bodyW),
+    height: round2(bodyH),
     fill,
     stroke,
     'stroke-width': strokeWidth,
     'stroke-linejoin': 'round',
   });
   const leftCap = svgElement('ellipse', {
-    cx: r(leftX),
-    cy: r(centerY),
-    rx: r(capR * 0.5),
-    ry: r(capR),
+    cx: round2(leftX),
+    cy: round2(centerY),
+    rx: round2(capR * 0.5),
+    ry: round2(capR),
     fill: pickColor(rng, palette, 'secondary'),
     stroke,
     'stroke-width': strokeWidth,
   });
   const rightCap = svgElement('ellipse', {
-    cx: r(rightX),
-    cy: r(centerY),
-    rx: r(capR * 0.5),
-    ry: r(capR),
+    cx: round2(rightX),
+    cy: round2(centerY),
+    rx: round2(capR * 0.5),
+    ry: round2(capR),
     fill: pickColor(rng, palette, 'secondary'),
     stroke,
     'stroke-width': strokeWidth,
@@ -40,7 +40,3 @@ export const scrollRoll: PrimitiveFn = ({ rng, palette, size, centerX, centerY, 
 
   return svgElement('g', {}, body + leftCap + rightCap);
 };
-
-function r(n: number): number {
-  return Math.round(n * 100) / 100;
-}
