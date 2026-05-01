@@ -121,7 +121,8 @@ type PrimitiveCtx = {
 Returns an SVG fragment string. Internal jitter (proportions, rotation, segment counts) consumes RNG so two seeds produce visibly different swords. Constraints:
 
 - All geometry stays inside `[size * 0.1, size * 0.9]` bounding box (10% padding).
-- Stroke colour from `palette.neutral`. Fill from `palette.primary` ∪ `palette.accent`. No `'none'` fill on the subject — it must read as solid.
+- Stroke colour from `palette.neutral`. Fill from `palette.primary` ∪ `palette.accent`. The body element of a primitive (the dominant silhouette shape) must use a real fill — no `'none'`.
+- **Stroke-only silhouette exception:** Primitives whose visual identity is a line drawing (e.g. HUD reticle, antenna mast, wireframe icons) may use `fill="none"` on every sub-element. They must compensate by drawing strokes at ≥1.2× the base `strokeWidth` so they still read as solid at small sizes. Tests for stroke-only primitives substitute the "non-none body fill" assertion with a "no element has an empty fill" check (e.g. `not.toContain('fill=""')`) and an explicit comment in the test file describing why.
 - Stroke-linejoin `round`, stroke-linecap `round` to match Lucide register.
 - Final fragment is a single `<g>` element wrapping all sub-elements.
 
