@@ -12,3 +12,4 @@ starter-pack.zip
 .qa-sample/
 packages/web-preview/web-preview-html5.zip
 packages/web-preview/dist/
+.claude/worktrees
