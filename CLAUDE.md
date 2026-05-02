@@ -22,6 +22,7 @@ All run from the repo root unless noted. Top-level scripts fan out to packages v
 | Run a single test file | `pnpm --filter @procforge/core exec vitest run tests/generator.test.ts` |
 | Watch mode | `pnpm --filter @procforge/core test:watch` |
 | Build the official 200-icon pack | `pnpm produce-pack` (writes `starter-pack/` and `starter-pack.zip`) |
+| Build the itch cover images | `pnpm produce-cover` (writes `itch-page/cover-315x250.png` and `cover-630x500.png`) |
 | Visual QA sample | `pnpm qa-sample` |
 | Pre-launch checklist | `pnpm prelaunch-check` (or `--ci` to skip checks needing built assets, `--strict` to fail on warnings) |
 | Run the CLI | `node packages/cli/dist/cli.js --theme medieval-fantasy --count 50 --seed myseed --out my-icons --sizes 64,128` (build first) |
