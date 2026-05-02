@@ -63,3 +63,7 @@ MIT — see [LICENSE](LICENSE). Commercial use of the generated icons is permitt
 ## Contributing
 
 Issues and PRs welcome. New theme proposals: see [`docs/THEME-AUTHORING.md`](docs/THEME-AUTHORING.md).
+
+## Launch operations
+
+The non-engineering launch checklist (visual assets, account prep, GTM schedule, KPI tracking) lives in [`docs/LAUNCH-RUNBOOK.md`](docs/LAUNCH-RUNBOOK.md).
