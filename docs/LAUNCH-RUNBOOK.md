@@ -1,6 +1,12 @@
 # Procforge Icons — Launch Runbook（上架運營手冊）
 
-v1.0.0 上架的營運與行銷檢查清單。這份是 `docs/superpowers/plans/2026-04-25-procforge-icons-phase1.md` 的**非工程**對照（工程部分已全部完成）。Source-of-truth 在 `docs/superpowers/specs/2026-04-25-procforge-icons-design.md`。
+**上架版本：v1.1.0**（2026-05-01 tagged；v1.0.0 因 determinism baseline reset 已被取代，見 `CHANGELOG.md`）。
+
+這份是工程之外的營運與行銷檢查清單。工程部分已全部完成，涵蓋兩個 spec：
+- `docs/superpowers/specs/2026-04-25-procforge-icons-design.md`（Phase 1 原始設計，v1.0.0）
+- `docs/superpowers/specs/2026-05-01-game-oriented-primitives-design.md`（subject primitives，v1.1.0）
+
+對應的 plan：`docs/superpowers/plans/2026-04-25-procforge-icons-phase1.md`。
 
 狀態符號：`[ ]` 待辦 · `[x]` 完成 · `[~]` 進行中 · `[-]` 跳過（請註明原因）
 
@@ -10,12 +16,14 @@ v1.0.0 上架的營運與行銷檢查清單。這份是 `docs/superpowers/plans/
 
 這些是 Phase 1 工程明確排除的項目——屬於人工設計，必須在 D-day 之前產出。
 
+> **版本鎖定**：§A 所有視覺素材必須用上架版本（v1.1.0）的 generator 跑出來。v1.0.0 的 seed 在 v1.1.0 產出的 SVG 不同（baseline reset），素材用錯版本會導致封面 / GIF / 截圖跟下載內容對不上。
+
 ### A.1 封面圖
 - [ ] **縮圖（315×250）** — itch listing 縮圖
 - [ ] **完整版（630×500）** — itch listing hero
 - [ ] 深色背景 ~#1a1a2e、8×6 icon 排列（每主題 12 個）
 - [ ] 標題：「Procforge Icons」；副標：「200 procedural icons · MIT · No AI」
-- [ ] 角落徽章：「v1.0」、GitHub star 連結
+- [ ] 角落徽章：「v1.1」、GitHub star 連結
 - [ ] 不放 generator UI 截圖；文字精簡（315×250 縮圖下要可讀）
 
 ### A.2 Demo GIF
@@ -46,13 +54,15 @@ v1.0.0 上架的營運與行銷檢查清單。這份是 `docs/superpowers/plans/
 
 - [x] 200 個 icon 全部產出 + 視覺 QA — 由 `pnpm produce-pack` + `pnpm qa-sample` 涵蓋
 - [x] starter-pack.zip < 6 MB 已驗證 — `pnpm prelaunch-check` 在 CI 強制
-- [x] GitHub repo 公開、README 完整、v1.0.0 tag 已 push — 2026-04-28 完成
+- [x] GitHub repo 公開、README 完整、v1.0.0 tag 已 push（2026-04-28）、v1.1.0 tag 已 push（2026-05-01）
 - [x] 4 篇 devlog 草稿備好 — `itch-page/devlog-templates/` 已交付
 - [x] repo 內 MIT LICENSE 檔
+- [ ] **`scripts/produce-starter-pack.ts` 內硬寫的 `Starter Pack v1.0.0` 字串改為 v1.1.0**（zip 內 README）
+- [ ] **重跑 `pnpm produce-pack` 用 v1.1.0 產 starter-pack.zip**（v1.0.0 的 zip 已過時 — baseline reset）
 - [ ] **Web preview 在 itch HTML5 sandbox 內可運作** — 需上傳測試 listing 驗證（無法自動化）
-- [ ] **封面圖兩個尺寸備好**（見 §A.1）
-- [ ] **Demo GIF < 3 MB、循環無痕**（見 §A.2）
-- [ ] **5 張截圖備好**（見 §A.3）
+- [ ] **封面圖兩個尺寸備好**（見 §A.1，須用 v1.1.0 產出）
+- [ ] **Demo GIF < 3 MB、循環無痕**（見 §A.2，須用 v1.1.0 產出）
+- [ ] **5 張截圖備好**（見 §A.3，須用 v1.1.0 產出）
 - [ ] **itch description 拼字檢查** — `itch-page/description.md` 貼到正式 listing 前再過一次
 - [ ] **Reddit / Twitter / Bluesky 帳號建好、首發貼文草稿備好**（見 §B）
 
@@ -66,7 +76,7 @@ v1.0.0 上架的營運與行銷檢查清單。這份是 `docs/superpowers/plans/
 
 | Day | 動作 | 完成 |
 |---|---|---|
-| D-day（週二） | itch listing 09:00 ET 上線；GitHub v1.0.0 release 已 push | [ ] |
+| D-day（週二） | itch listing 09:00 ET 上線；GitHub v1.1.0 release 已 push（取代 v1.0.0 為公開上架版本） | [ ] |
 | D-day | 發 r/proceduralgeneration；Twitter / Bluesky 第一波貼文 | [ ] |
 | D+1 | 發 r/IndieDev、r/gamedev — 每個 sub 換不同切角 | [ ] |
 | D+2 | 發 r/godot、r/Unity3D — 引擎中立、兩邊都吃 | [ ] |
@@ -97,8 +107,10 @@ v1.0.0 上架的營運與行銷檢查清單。這份是 `docs/superpowers/plans/
 |---|---|---|
 | D+22 | Devlog #4 「What's next: Phase 2 themed expansion packs」（付費前奏） | [ ] |
 | D+25 | Discord / itch 投票 — 「Which expansion theme do you want next?」 | [ ] |
-| D+28 | Release **v1.1** — 多 50 個 icon + 小修（演算法 recency 加分） | [ ] |
+| D+28 | Release **v1.2**（recency 用，內容待 D+25 投票結果決定 — 例：擴量 50 icons、palette tweak、或新 composer） | [ ] |
 | D+30 | M1-end KPI 檢查 + 內部 post-mortem | [ ] |
+
+> 註：原規劃中的「D+28 v1.1」已於 2026-05-01 提前於 v1.1.0 出貨（subject primitives + determinism baseline reset，非擴量），故 D+28 改為 v1.2 保留 recency 訊號。
 
 ---
 
@@ -140,7 +152,8 @@ Week 1–4 每週五各記一次，之後改月度。
 
 ## H. 上架後 follow-up（M1+）
 
-- [ ] **v1.1 發布**（D+28） — 多 50 個 icon、小修、與 devlog #4 互連
+- [x] **v1.1.0 發布** — 已於 2026-05-01 上架前完成（subject primitives + baseline reset，見 `CHANGELOG.md`）
+- [ ] **v1.2 發布**（D+28） — 內容由 D+25 社群投票決定，與 devlog #4 互連
 - [ ] **開放 GitHub Issues 收社群主題請求**（Phase 2 需求訊號 — spec §5.3）
 - [ ] **M1 post-mortem 文件**（D+30） — 哪些做對、哪些沒打中、Phase 2 啟動決策
 - [ ] **Phase 2 spec** — 主題擴充包（spec §8.1） — 若訊號健康，D+25 開始草擬
@@ -149,7 +162,9 @@ Week 1–4 每週五各記一次，之後改月度。
 
 ## 來源參考
 
-- Spec：`docs/superpowers/specs/2026-04-25-procforge-icons-design.md` §6.4、§6.5、§7.2–7.7、§5.3
+- Spec（v1.0.0，GTM 章節）：`docs/superpowers/specs/2026-04-25-procforge-icons-design.md` §6.4、§6.5、§7.2–7.7、§5.3
+- Spec（v1.1.0 subject primitives）：`docs/superpowers/specs/2026-05-01-game-oriented-primitives-design.md`
 - Phase 1 plan（工程，已完成）：`docs/superpowers/plans/2026-04-25-procforge-icons-phase1.md`
+- 版本歷程：`CHANGELOG.md`
 - itch listing 文案：`itch-page/description.md`、`itch-page/tags.md`
 - Devlog 草稿：`itch-page/devlog-templates/`

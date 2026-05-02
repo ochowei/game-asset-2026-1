@@ -50,7 +50,7 @@ async function main(): Promise<void> {
 
   const manifest = {
     name: 'Procforge Icons starter pack',
-    version: '1.0.0',
+    version: '1.1.0',
     generatedAt: new Date().toISOString(),
     themes: THEMES.map((t) => ({ id: t.id, displayName: t.displayName, tags: t.tags })),
     sizes: SIZES,
@@ -82,7 +82,7 @@ ${galleryRows}
 
   await writeFile(
     join(OUT_DIR, 'README.md'),
-    `# Procforge Icons — Starter Pack v1.0.0\n\n200 procedural game icons across 4 themes:\n\n${THEMES.map(
+    `# Procforge Icons — Starter Pack v1.1.0\n\n200 procedural game icons across 4 themes:\n\n${THEMES.map(
       (t) => `- **${t.displayName}** (${ICONS_PER_THEME} icons)`,
     ).join('\n')}\n\nEach icon ships as scalable SVG plus PNG at ${SIZES.join(', ')}px.\n\n## License\nMIT — free for commercial and non-commercial use, attribution appreciated but not required.\n\n## Open-source generator\nhttps://github.com/procforge/icons\n`,
     'utf8',
