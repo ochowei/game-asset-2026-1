@@ -304,11 +304,21 @@ function checkLicense() {
 
 function checkV1Tag() {
   try {
-    const tags = execSync('git tag -l v1.0.0', { encoding: 'utf8' }).trim();
-    if (tags === 'v1.0.0') ok('git-tag', 'v1.0.0 tag pushed', '');
-    else fail('git-tag', 'v1.0.0 tag pushed', 'tag missing — run `git tag v1.0.0 && git push --tags`');
+    const required = ['v1.0.0', 'v1.1.0'];
+    const tags = execSync('git tag -l', { encoding: 'utf8' })
+      .split('\n')
+      .map((t) => t.trim())
+      .filter(Boolean);
+    const missing = required.filter((r) => !tags.includes(r));
+    if (missing.length === 0) ok('git-tag', 'release tags pushed', required.join(', '));
+    else
+      fail(
+        'git-tag',
+        'release tags pushed',
+        `missing: ${missing.join(', ')} — run \`git tag <name> && git push --tags\``,
+      );
   } catch (e) {
-    warn('git-tag', 'v1.0.0 tag pushed', `git unavailable: ${(e as Error).message}`);
+    warn('git-tag', 'release tags pushed', `git unavailable: ${(e as Error).message}`);
   }
 }
 
