@@ -3,10 +3,10 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const shieldFrame: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const halfW = range(rng, size * 0.22, size * 0.3);
-  const topY = centerY - range(rng, size * 0.28, size * 0.34);
+  const halfW = range(rng, size * 0.24, size * 0.28);
+  const topY = centerY - range(rng, size * 0.30, size * 0.34);
   const shoulderY = topY + range(rng, size * 0.05, size * 0.08);
-  const bottomY = centerY + range(rng, size * 0.3, size * 0.36);
+  const bottomY = centerY + range(rng, size * 0.32, size * 0.36);
 
   const outer = `M ${round2(centerX - halfW)} ${round2(topY)}
     Q ${round2(centerX)} ${round2(topY - halfW * 0.15)} ${round2(centerX + halfW)} ${round2(topY)}
@@ -25,7 +25,7 @@ export const shieldFrame: PrimitiveFn = ({ rng, palette, size, centerX, centerY,
   return svgElement(
     'g',
     {},
-    svgElement('path', { d: outer, fill, stroke, 'stroke-width': strokeWidth, 'stroke-linejoin': 'round' }) +
+    svgElement('path', { d: outer, fill, stroke, 'stroke-width': Math.max(2, strokeWidth * 1.4), 'stroke-linejoin': 'round' }) +
       svgElement('path', {
         d: inner,
         fill: 'none',

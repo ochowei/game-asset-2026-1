@@ -3,9 +3,9 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const swordBlade: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bladeLen = range(rng, size * 0.45, size * 0.5);
-  const bladeWidth = range(rng, size * 0.06, size * 0.12);
-  const guardWidth = range(rng, size * 0.22, size * 0.32);
+  const bladeLen = range(rng, size * 0.46, size * 0.50);
+  const bladeWidth = range(rng, size * 0.07, size * 0.10);
+  const guardWidth = range(rng, size * 0.24, size * 0.30);
   const guardHeight = Math.max(2, size * 0.04);
   const gripLen = range(rng, size * 0.08, size * 0.1);
   const pommelR = range(rng, size * 0.025, size * 0.035);
@@ -19,7 +19,7 @@ export const swordBlade: PrimitiveFn = ({ rng, palette, size, centerX, centerY, 
     points: `${round2(centerX)},${round2(tipY)} ${round2(centerX + bladeWidth / 2)},${round2(guardY)} ${round2(centerX - bladeWidth / 2)},${round2(guardY)}`,
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
   const guard = svgElement('rect', {
