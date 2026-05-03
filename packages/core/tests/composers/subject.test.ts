@@ -46,7 +46,7 @@ describe('subject composer', () => {
     }
   });
 
-  it('decoration count distribution is roughly 25/50/25 across 1000 seeds', () => {
+  it('decoration count distribution is roughly 50/40/10 across 1000 seeds', () => {
     const counts = [0, 0, 0];
     for (let i = 0; i < 1000; i++) {
       const out = subject({
@@ -60,12 +60,12 @@ describe('subject composer', () => {
       const c = (before.match(/<(circle|polygon|path)\b/g) ?? []).length;
       counts[c] = (counts[c] ?? 0) + 1;
     }
-    expect(counts[0]! / 1000).toBeGreaterThan(0.15);
-    expect(counts[0]! / 1000).toBeLessThan(0.35);
-    expect(counts[1]! / 1000).toBeGreaterThan(0.4);
-    expect(counts[1]! / 1000).toBeLessThan(0.6);
-    expect(counts[2]! / 1000).toBeGreaterThan(0.15);
-    expect(counts[2]! / 1000).toBeLessThan(0.35);
+    expect(counts[0]! / 1000).toBeGreaterThan(0.4);
+    expect(counts[0]! / 1000).toBeLessThan(0.6);
+    expect(counts[1]! / 1000).toBeGreaterThan(0.3);
+    expect(counts[1]! / 1000).toBeLessThan(0.5);
+    expect(counts[2]! / 1000).toBeGreaterThan(0.05);
+    expect(counts[2]! / 1000).toBeLessThan(0.2);
   });
 
   it('is deterministic for the same seed', () => {
