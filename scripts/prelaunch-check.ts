@@ -304,7 +304,7 @@ function checkLicense() {
 
 function checkV1Tag() {
   try {
-    const required = ['v1.0.0', 'v1.1.0'];
+    const required = ['v1.0.0', 'v1.1.0', 'v1.2.0'];
     const tags = execSync('git tag -l', { encoding: 'utf8' })
       .split('\n')
       .map((t) => t.trim())
