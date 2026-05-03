@@ -1,11 +1,16 @@
-import { intRange, range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+
+// Chip identity: square body with EXACTLY 3 pins on each of 4 sides (DIP-12
+// style) plus a centre dot. Pin count is fixed (was variable 3-4) to lock
+// the canonical IC silhouette across seeds.
+const PINS_PER_SIDE = 3;
 
 export const chipBoard: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const half = range(rng, size * 0.18, size * 0.24);
-  const pinsPerSide = intRange(rng, 3, 4);
-  const pinLen = range(rng, size * 0.05, size * 0.08);
+  const half = range(rng, size * 0.19, size * 0.23);
+  const pinsPerSide = PINS_PER_SIDE;
+  const pinLen = range(rng, size * 0.06, size * 0.08);
 
   const square = svgElement('rect', {
     x: round2(centerX - half),
@@ -14,7 +19,7 @@ export const chipBoard: PrimitiveFn = ({ rng, palette, size, centerX, centerY, s
     height: round2(half * 2),
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
 

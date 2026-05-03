@@ -3,12 +3,12 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const dagger: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bladeLen = range(rng, size * 0.30, size * 0.36);
-  const bladeW = range(rng, size * 0.05, size * 0.08);
-  const guardW = range(rng, size * 0.16, size * 0.22);
-  const guardH = Math.max(2, size * 0.04);
+  const bladeLen = range(rng, size * 0.32, size * 0.36);
+  const bladeW = range(rng, size * 0.06, size * 0.08);
+  const guardW = range(rng, size * 0.18, size * 0.22);
+  const guardH = Math.max(2, size * 0.045);
   const gripLen = range(rng, size * 0.07, size * 0.09);
-  const pommelR = range(rng, size * 0.035, size * 0.05);
+  const pommelR = range(rng, size * 0.04, size * 0.05);
 
   const tipY = centerY - bladeLen * 0.5;
   const guardY = centerY + bladeLen * 0.45;
@@ -18,7 +18,7 @@ export const dagger: PrimitiveFn = ({ rng, palette, size, centerX, centerY, stro
     points: `${round2(centerX)},${round2(tipY)} ${round2(centerX + bladeW / 2)},${round2(guardY)} ${round2(centerX - bladeW / 2)},${round2(guardY)}`,
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
   const guard = svgElement('rect', {
@@ -31,6 +31,17 @@ export const dagger: PrimitiveFn = ({ rng, palette, size, centerX, centerY, stro
     'stroke-width': strokeWidth,
     'stroke-linejoin': 'round',
   });
+  // Grip line connects guard to pommel — without it the pommel "floats"
+  // detached from the blade, breaking the dagger silhouette.
+  const grip = svgElement('line', {
+    x1: round2(centerX),
+    y1: round2(guardY + guardH),
+    x2: round2(centerX),
+    y2: round2(pommelY - pommelR),
+    stroke,
+    'stroke-width': Math.max(2, strokeWidth * 1.1),
+    'stroke-linecap': 'round',
+  });
   const pommel = svgElement('circle', {
     cx: round2(centerX),
     cy: round2(pommelY),
@@ -39,5 +50,5 @@ export const dagger: PrimitiveFn = ({ rng, palette, size, centerX, centerY, stro
     stroke,
     'stroke-width': strokeWidth,
   });
-  return svgElement('g', {}, blade + guard + pommel);
+  return svgElement('g', {}, blade + guard + grip + pommel);
 };

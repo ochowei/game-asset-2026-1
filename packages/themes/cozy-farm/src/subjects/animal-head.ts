@@ -3,9 +3,9 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const animalHead: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const radius = range(rng, size * 0.22, size * 0.28);
+  const radius = range(rng, size * 0.23, size * 0.27);
   const earBase = radius * 0.6;
-  const earTip = radius * range(rng, 1.0, 1.2);
+  const earTip = radius * range(rng, 1.05, 1.15);
 
   const face = svgElement('circle', {
     cx: round2(centerX),
@@ -13,7 +13,7 @@ export const animalHead: PrimitiveFn = ({ rng, palette, size, centerX, centerY, 
     r: round2(radius),
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
   });
   const leftEar = svgElement('polygon', {
     points: `${round2(centerX - radius * 0.7)},${round2(centerY - radius * 0.6)} ${round2(centerX - earBase)},${round2(centerY - earTip)} ${round2(centerX - radius * 0.3)},${round2(centerY - radius * 0.5)}`,

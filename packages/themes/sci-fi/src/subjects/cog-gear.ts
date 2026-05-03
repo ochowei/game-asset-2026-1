@@ -1,11 +1,16 @@
-import { intRange, range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+
+// Cog identity: 8 teeth around a central hub with a clear axle hole. Teeth
+// count is fixed at 8 (was variable 6-10) so the cog always reads as a
+// canonical mechanical gear, not as an "irregular spiky polygon".
+const TEETH = 8;
 
 export const cogGear: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const teeth = intRange(rng, 6, 10);
-  const outer = range(rng, size * 0.25, size * 0.32);
-  const inner = outer * range(rng, 0.78, 0.86);
+  const teeth = TEETH;
+  const outer = range(rng, size * 0.26, size * 0.30);
+  const inner = outer * range(rng, 0.78, 0.84);
   const points: string[] = [];
   for (let i = 0; i < teeth * 2; i++) {
     const isOuter = i % 2 === 0;
@@ -17,7 +22,7 @@ export const cogGear: PrimitiveFn = ({ rng, palette, size, centerX, centerY, str
     points: points.join(' '),
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
   const hole = svgElement('circle', {

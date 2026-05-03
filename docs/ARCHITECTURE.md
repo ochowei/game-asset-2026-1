@@ -87,6 +87,6 @@ Therefore the SVG output is byte-identical across runs given the same theme modu
 
 The deterministic-output guarantee is byte-stable from a baseline. Adding or changing primitives, composers, or palette entries in any theme breaks the byte-identity for that theme — `(theme.id, seed)` after the change will produce a different SVG than before.
 
-The current baseline began with the introduction of theme-specific subject primitives (see `docs/superpowers/specs/2026-05-01-game-oriented-primitives-design.md`). Earlier abstract output produced before this baseline is not regenerable from the same seeds.
+The current baseline is **v1.2.0** (recognisability pass — fixed affordance hints, boosted subject strokes, narrowed RNG jitter, tightened decoration distribution). The v1.1.0 baseline that introduced theme-specific subject primitives (see `docs/superpowers/specs/2026-05-01-game-oriented-primitives-design.md`) is superseded; seeds against v1.1.0 produce different SVG against v1.2.0+. Earlier abstract output (pre-v1.1.0) is also not regenerable from the same seeds.
 
 Future theme-content changes (palette tweaks, new primitives) reset the baseline again. Document any baseline reset in CHANGELOG / release notes so buyers who depend on specific seeds are aware.

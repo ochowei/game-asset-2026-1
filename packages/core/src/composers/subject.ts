@@ -15,7 +15,7 @@ export const subject: ComposerFn = ({ rng, palette, size, primitives }) => {
   const strokeWidth = Math.max(1, Math.round(size * 0.04));
 
   const r = rng();
-  const decorationCount = r < 0.25 ? 0 : r < 0.75 ? 1 : 2;
+  const decorationCount = r < 0.5 ? 0 : r < 0.9 ? 1 : 2;
 
   // Decorations render at half virtual size so their internal radii stay
   // visibly smaller than the centred subject (subject dominance, spec §3.2).

@@ -1,12 +1,17 @@
-import { intRange, range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+
+// Antenna identity: vertical mast with 4 horizontal cross-bars of decreasing
+// length (dipole-array silhouette). Bar count fixed at 4 (was variable 3-5)
+// so the antenna reads consistently as a broadcast/sensor mast.
+const BARS = 4;
 
 export const antennaArray: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const accent = pickColor(rng, palette, 'accent');
-  const mastLen = range(rng, size * 0.55, size * 0.7);
+  const mastLen = range(rng, size * 0.60, size * 0.68);
   const mastTopY = centerY - mastLen / 2;
   const mastBottomY = centerY + mastLen / 2;
-  const bars = intRange(rng, 3, 5);
+  const bars = BARS;
 
   const mast = svgElement('line', {
     x1: round2(centerX),
@@ -14,7 +19,7 @@ export const antennaArray: PrimitiveFn = ({ rng, palette, size, centerX, centerY
     x2: round2(centerX),
     y2: round2(mastBottomY),
     stroke,
-    'stroke-width': Math.max(2, strokeWidth * 1.3),
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linecap': 'round',
   });
 
