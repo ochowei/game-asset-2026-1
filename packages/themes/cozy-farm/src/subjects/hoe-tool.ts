@@ -5,15 +5,15 @@ export const hoeTool: PrimitiveFn = ({ rng, palette, size, centerX, centerY, str
   const handleColor = pickColor(rng, palette, 'secondary');
   const bladeColor = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
 
-  const handleAngle = -Math.PI / 4 + range(rng, -0.1, 0.1);
-  const handleLen = range(rng, size * 0.45, size * 0.5);
+  const handleAngle = -Math.PI / 4 + range(rng, -0.08, 0.08);
+  const handleLen = range(rng, size * 0.46, size * 0.50);
   const x1 = centerX - Math.cos(handleAngle) * handleLen / 2;
   const y1 = centerY - Math.sin(handleAngle) * handleLen / 2;
   const x2 = centerX + Math.cos(handleAngle) * handleLen / 2;
   const y2 = centerY + Math.sin(handleAngle) * handleLen / 2;
 
-  const bladeW = range(rng, size * 0.14, size * 0.2);
-  const bladeH = range(rng, size * 0.1, size * 0.14);
+  const bladeW = range(rng, size * 0.15, size * 0.19);
+  const bladeH = range(rng, size * 0.11, size * 0.13);
   const bx = x2;
   const by = y2;
 
@@ -30,7 +30,7 @@ export const hoeTool: PrimitiveFn = ({ rng, palette, size, centerX, centerY, str
     points: `${round2(bx)},${round2(by - bladeH / 2)} ${round2(bx + bladeW)},${round2(by - bladeH * 0.2)} ${round2(bx + bladeW)},${round2(by + bladeH * 0.6)} ${round2(bx)},${round2(by + bladeH / 2)}`,
     fill: bladeColor,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
 

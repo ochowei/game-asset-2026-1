@@ -3,9 +3,9 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const seedPouch: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const halfW = range(rng, size * 0.2, size * 0.26);
-  const topY = centerY - range(rng, size * 0.18, size * 0.24);
-  const bottomY = centerY + range(rng, size * 0.22, size * 0.3);
+  const halfW = range(rng, size * 0.21, size * 0.25);
+  const topY = centerY - range(rng, size * 0.19, size * 0.23);
+  const bottomY = centerY + range(rng, size * 0.24, size * 0.28);
   const neckW = halfW * 0.5;
 
   const sack = `M ${round2(centerX - neckW)} ${round2(topY)}
@@ -18,7 +18,7 @@ export const seedPouch: PrimitiveFn = ({ rng, palette, size, centerX, centerY, s
     d: sack,
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
   const tieY = topY - size * 0.04;

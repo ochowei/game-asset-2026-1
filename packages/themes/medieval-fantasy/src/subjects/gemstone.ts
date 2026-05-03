@@ -1,10 +1,15 @@
-import { intRange, range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+
+// Gemstone identity: regular hexagonal body with internal radial facet lines.
+// Sides fixed at 6 (was variable 5-7) so the canonical "cut gem" silhouette
+// reads consistently across seeds.
+const HEX_SIDES = 6;
 
 export const gemstone: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const facets = intRange(rng, 5, 7);
-  const radius = range(rng, size * 0.22, size * 0.32);
+  const facets = HEX_SIDES;
+  const radius = range(rng, size * 0.24, size * 0.30);
   const points: string[] = [];
   const angleOffset = -Math.PI / 2;
   for (let i = 0; i < facets; i++) {
@@ -17,7 +22,7 @@ export const gemstone: PrimitiveFn = ({ rng, palette, size, centerX, centerY, st
     points: points.join(' '),
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
   const facetCount = facets;

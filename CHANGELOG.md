@@ -1,5 +1,29 @@
 # Changelog
 
+## v1.2.0 — 2026-05-XX (recognisability pass)
+
+### Breaking — determinism baseline reset
+
+The `(theme.id, seed)` byte-stable invariant resumes from a new baseline at v1.2.0. Seeds used against v1.1.0 produce different SVG output against v1.2.0+. Buyers pinning specific seeds need to regenerate.
+
+### Why
+
+The v1.1.0 subject primitives shipped on the right architecture but several pairs of subjects (coin/gem/ring, energy-orb/coin/cog) were visually too similar at 64×64 — buyers reported that a meaningful fraction of icons in the 200-pack were ambiguous about what game object they represented. v1.2.0 closes that gap without changing the architecture: same composer, same primitive contract, tighter visuals.
+
+### Changes
+
+- **Subject composer** (`@procforge/core`): decoration-count distribution shifts from 25/50/25 to **50/40/10** (0/1/2 decorations). Half the icons are now subject-only and only 10% carry the maximum two decorations — significantly less visual noise competing with the subject.
+- **All 24 subject primitives** received a three-part recognisability pass:
+  1. **Affordance hints fixed** — elements that signal what the icon *is* are no longer subject to RNG cancellation. Coin always has a 5-pointed star centre, gemstone is always a hexagon, gem always has 4 radial facet lines, chip always has 12 pins (3 per side), cog always has 8 teeth, energy-orb always has 8 rays, antenna always has 4 cross-bars, wheat always has 5 grains, etc.
+  2. **Subject stroke 1.4× boost** — the dominant body element of each subject uses a thicker stroke than decorations, so subject vs decoration is unambiguous at small sizes.
+  3. **Jitter ranges narrowed** — internal proportion variation tightened so RNG cannot produce degenerate silhouettes (a sword with 20%-height blade, an axe with vestigial head).
+- **Dagger** (`roguelike-inventory`): added the missing grip line connecting guard to pommel — the pommel was visually detached in v1.1.0 and the silhouette didn't read as a dagger.
+- **Ring band** (`roguelike-inventory`): stone setting enlarged from r ≈ 0.04·size to r ≈ 0.06·size so the "ring with jewel" silhouette stays visible at 64px.
+
+### Spec relationship
+
+This is a v1.1.0 implementation refinement, not a new spec. The architecture, primitive contract, and 24-primitive inventory from `docs/superpowers/specs/2026-05-01-game-oriented-primitives-design.md` are unchanged. Only RNG consumption and stroke-width constants change inside primitive bodies.
+
 ## v1.1.0 — 2026-05-01
 
 ### Breaking — determinism baseline reset

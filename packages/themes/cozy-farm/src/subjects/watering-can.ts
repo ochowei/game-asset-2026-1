@@ -3,8 +3,8 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const wateringCan: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bodyW = range(rng, size * 0.32, size * 0.4);
-  const bodyH = range(rng, size * 0.28, size * 0.34);
+  const bodyW = range(rng, size * 0.34, size * 0.38);
+  const bodyH = range(rng, size * 0.29, size * 0.33);
   const left = centerX - bodyW * 0.4;
   const right = centerX + bodyW * 0.4;
   const top = centerY - bodyH * 0.3;
@@ -14,7 +14,7 @@ export const wateringCan: PrimitiveFn = ({ rng, palette, size, centerX, centerY,
     d: `M ${round2(left)} ${round2(top)} L ${round2(right)} ${round2(top)} L ${round2(right + size * 0.05)} ${round2(bottom)} L ${round2(left - size * 0.05)} ${round2(bottom)} Z`,
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
   const spout = svgElement('polygon', {

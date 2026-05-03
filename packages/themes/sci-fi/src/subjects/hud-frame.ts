@@ -2,8 +2,8 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 
 export const hudFrame: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
-  const half = range(rng, size * 0.25, size * 0.34);
-  const armLen = half * range(rng, 0.45, 0.6);
+  const half = range(rng, size * 0.27, size * 0.32);
+  const armLen = half * range(rng, 0.48, 0.58);
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'accent') : pickColor(rng, palette, 'primary');
 
   const corner = (cx: number, cy: number, dx: number, dy: number): string =>
@@ -11,7 +11,7 @@ export const hudFrame: PrimitiveFn = ({ rng, palette, size, centerX, centerY, st
       d: `M ${round2(cx)} ${round2(cy + dy * armLen)} L ${round2(cx)} ${round2(cy)} L ${round2(cx + dx * armLen)} ${round2(cy)}`,
       fill: 'none',
       stroke,
-      'stroke-width': Math.max(2, strokeWidth * 1.2),
+      'stroke-width': Math.max(2, strokeWidth * 1.4),
       'stroke-linecap': 'round',
       'stroke-linejoin': 'round',
     });

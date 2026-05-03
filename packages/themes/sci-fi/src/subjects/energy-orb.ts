@@ -1,13 +1,19 @@
-import { intRange, range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+
+// Energy orb identity: concentric circles with 8 radiating rays at fixed
+// angles (sun-like). Ray count is fixed (was variable 4-8) so the orb
+// always reads as "energy radiating outward" rather than collapsing into
+// a plain double-circle that could be mistaken for a coin.
+const RAYS = 8;
 
 export const energyOrb: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
   const outerR = range(rng, size * 0.22, size * 0.28);
-  const innerR = outerR * range(rng, 0.45, 0.65);
-  const rays = intRange(rng, 4, 8);
+  const innerR = outerR * range(rng, 0.50, 0.62);
+  const rays = RAYS;
   const rayInner = outerR * 1.05;
-  const rayOuter = outerR * range(rng, 1.25, 1.4);
+  const rayOuter = outerR * range(rng, 1.28, 1.40);
 
   const ringOuter = svgElement('circle', {
     cx: round2(centerX),
@@ -15,7 +21,7 @@ export const energyOrb: PrimitiveFn = ({ rng, palette, size, centerX, centerY, s
     r: round2(outerR),
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
   });
   const ringInner = svgElement('circle', {
     cx: round2(centerX),

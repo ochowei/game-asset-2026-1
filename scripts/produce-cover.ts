@@ -8,7 +8,7 @@ import { cozyFarm } from '@procforge/theme-cozy-farm';
 import { roguelikeInventory } from '@procforge/theme-roguelike-inventory';
 
 const OUT_DIR = 'itch-page';
-const VERSION = 'v1.1';
+const VERSION = 'v1.2';
 const BASE_SEED = 'cover';
 const ICONS_PER_THEME = 12;
 const ICON_INTERNAL_SIZE = 64;

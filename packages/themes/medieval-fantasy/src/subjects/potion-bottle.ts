@@ -3,11 +3,13 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const potionBottle: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bodyRX = range(rng, size * 0.18, size * 0.24);
-  const bodyRY = range(rng, size * 0.16, size * 0.22);
+  const bodyRX = range(rng, size * 0.19, size * 0.23);
+  const bodyRY = range(rng, size * 0.17, size * 0.21);
   const bodyCY = centerY + size * 0.12;
-  const neckW = range(rng, size * 0.08, size * 0.12);
-  const neckH = range(rng, size * 0.12, size * 0.18);
+  // Narrow neck (≤ 50% of body width) is the affordance hint that says
+  // "bottle" rather than "vase" or "jar".
+  const neckW = range(rng, size * 0.08, size * 0.10);
+  const neckH = range(rng, size * 0.13, size * 0.17);
   const neckTopY = bodyCY - bodyRY - neckH;
   const corkH = range(rng, size * 0.05, size * 0.08);
 
@@ -18,7 +20,7 @@ export const potionBottle: PrimitiveFn = ({ rng, palette, size, centerX, centerY
     ry: round2(bodyRY),
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
   });
   const neck = svgElement('rect', {
     x: round2(centerX - neckW / 2),

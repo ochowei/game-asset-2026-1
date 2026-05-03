@@ -3,8 +3,8 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const bookCover: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const w = range(rng, size * 0.36, size * 0.46);
-  const h = range(rng, size * 0.5, size * 0.6);
+  const w = range(rng, size * 0.40, size * 0.46);
+  const h = range(rng, size * 0.52, size * 0.58);
   const x = centerX - w / 2;
   const y = centerY - h / 2;
   const spineX = x + size * 0.05;
@@ -18,16 +18,18 @@ export const bookCover: PrimitiveFn = ({ rng, palette, size, centerX, centerY, s
     height: round2(h),
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
+  // Spine line is the affordance hint that distinguishes the book from a plain
+  // rectangle; boost stroke so it stays visible at small sizes.
   const spine = svgElement('line', {
     x1: round2(spineX),
     y1: round2(y),
     x2: round2(spineX),
     y2: round2(y + h),
     stroke,
-    'stroke-width': Math.max(1, strokeWidth * 0.7),
+    'stroke-width': Math.max(2, strokeWidth * 1.0),
     'stroke-linecap': 'round',
   });
   const clasp = svgElement('rect', {
