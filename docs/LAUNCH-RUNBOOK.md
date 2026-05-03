@@ -22,12 +22,15 @@
 > **版本鎖定**：§A 所有視覺素材必須用上架版本（v1.2.0）的 generator 跑出來。v1.1.0 的 seed 在 v1.2.0 產出的 SVG 不同（baseline reset），素材用錯版本會導致封面 / GIF / 截圖跟下載內容對不上。
 
 ### A.1 封面圖
-- [ ] **縮圖（315×250）** — itch listing 縮圖
-- [ ] **完整版（630×500）** — itch listing hero
-- [ ] 深色背景 ~#1a1a2e、8×6 icon 排列（每主題 12 個）
-- [ ] 標題：「Procforge Icons」；副標：「200 procedural icons · MIT · No AI」
-- [ ] 角落徽章：「v1.2」、GitHub star 連結
-- [ ] 不放 generator UI 截圖；文字精簡（315×250 縮圖下要可讀）
+
+> 兩個尺寸的合成 PNG 由 `pnpm produce-cover` 自動產出（baseSeed=`cover`，固定佈局）。版型與文字若要改動,編輯 `scripts/produce-cover.ts`。產完仍須人工視覺驗收後再勾 `[x]`。**注意:每次 baseline reset(目前 v1.2.0)後都必須重跑此指令**,不然 cover icon 跟 starter-pack icon 對不上。
+
+- [ ] **縮圖（315×250）** — itch listing 縮圖（由 `pnpm produce-cover` 涵蓋，待視覺驗收）
+- [ ] **完整版（630×500）** — itch listing hero（由 `pnpm produce-cover` 涵蓋，待視覺驗收）
+- [x] 深色背景 ~#1a1a2e、8×6 icon 排列（每主題 12 個）— 已寫進 `scripts/produce-cover.ts`
+- [x] 標題：「Procforge Icons」；副標：「200 procedural icons · MIT · No AI」— 已寫進 script
+- [x] 角落徽章：「v1.2」(GitHub 連結移到 itch listing 描述,spec §6.4 不強制放在封面)
+- [ ] 不放 generator UI 截圖；文字精簡（315×250 縮圖下要可讀）— 視覺驗收項
 
 ### A.2 Demo GIF
 - [ ] 8–10 秒循環，**< 3 MB**
@@ -63,7 +66,7 @@
 - [ ] **`scripts/produce-starter-pack.ts` 內硬寫的版本字串改為 v1.2.0**（zip 內 README）
 - [x] **重跑 `pnpm produce-pack` 用 v1.2.0 產 starter-pack.zip**（v1.1.0 的 zip 已過時 — baseline reset）
 - [ ] **Web preview 在 itch HTML5 sandbox 內可運作** — 需上傳測試 listing 驗證（無法自動化）
-- [ ] **封面圖兩個尺寸備好**（見 §A.1，須用 v1.2.0 產出）
+- [ ] **封面圖兩個尺寸備好**（見 §A.1，須用 v1.2.0 產出）— 跑 `pnpm produce-cover` 後再人工視覺檢查
 - [ ] **Demo GIF < 3 MB、循環無痕**（見 §A.2，須用 v1.2.0 產出）
 - [ ] **5 張截圖備好**（見 §A.3，須用 v1.2.0 產出）
 - [ ] **itch description 拼字檢查** — `itch-page/description.md` 貼到正式 listing 前再過一次

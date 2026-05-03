@@ -14,6 +14,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "produce-pack": "tsx scripts/produce-starter-pack.ts",
+    "produce-cover": "tsx scripts/produce-cover.ts",
     "qa-sample": "tsx scripts/visual-qa-sample.ts",
     "prelaunch-check": "tsx scripts/prelaunch-check.ts"
   },
