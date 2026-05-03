@@ -71,3 +71,4 @@ Output is consumed three ways: returned as a string (core API), written to disk 
 - `docs/ARCHITECTURE.md` — design rationale (why TS, why monorepo, why hand-written SVG strings, testing strategy).
 - `docs/USAGE.md` — full CLI flag reference and output structure.
 - `docs/THEME-AUTHORING.md` — step-by-step for adding a new theme package.
+- `docs/FUTURE-WORK.md` — post-v1.2.0 visual quality paths (Lucide-reference rewrite + designer-seeded bases) deferred from launch.
