@@ -1,12 +1,17 @@
-import { intRange, range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procforge/core';
+
+// Wheat identity: vertical stalk with 5 alternating grains forming the
+// canonical wheat-head shape. Grain count fixed (was variable 4-6) to
+// keep the silhouette consistent across seeds.
+const GRAINS = 5;
 
 export const wheatStalk: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const grainColor = pickColor(rng, palette, 'accent');
-  const stalkLen = range(rng, size * 0.5, size * 0.6);
+  const stalkLen = range(rng, size * 0.52, size * 0.58);
   const top = centerY - stalkLen / 2;
   const bottom = centerY + stalkLen / 2;
-  const grains = intRange(rng, 4, 6);
+  const grains = GRAINS;
   const grainRX = range(rng, size * 0.05, size * 0.07);
   const grainRY = range(rng, size * 0.06, size * 0.08);
 
@@ -16,7 +21,7 @@ export const wheatStalk: PrimitiveFn = ({ rng, palette, size, centerX, centerY, 
     x2: round2(centerX),
     y2: round2(bottom),
     stroke: pickColor(rng, palette, 'secondary'),
-    'stroke-width': Math.max(2, strokeWidth * 1.1),
+    'stroke-width': Math.max(2, strokeWidth * 1.3),
     'stroke-linecap': 'round',
   });
 

@@ -4,8 +4,8 @@ export const fruit: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strok
   const stroke = pickColor(rng, palette, 'neutral');
   const body = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
   const leafColor = pickColor(rng, palette, 'secondary');
-  const radius = range(rng, size * 0.22, size * 0.26);
-  const stemLen = range(rng, size * 0.06, size * 0.1);
+  const radius = range(rng, size * 0.23, size * 0.26);
+  const stemLen = range(rng, size * 0.07, size * 0.09);
   const stemTopY = centerY - radius - stemLen;
   const leafW = range(rng, size * 0.1, size * 0.14);
   const leafH = range(rng, size * 0.06, size * 0.08);
@@ -16,7 +16,7 @@ export const fruit: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strok
     r: round2(radius),
     fill: body,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
   });
   const stem = svgElement('line', {
     x1: round2(centerX),
