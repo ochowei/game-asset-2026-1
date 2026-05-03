@@ -3,14 +3,14 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const blasterBody: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bodyW = range(rng, size * 0.32, size * 0.4);
-  const bodyH = range(rng, size * 0.16, size * 0.22);
+  const bodyW = range(rng, size * 0.34, size * 0.38);
+  const bodyH = range(rng, size * 0.17, size * 0.21);
   const bodyX = centerX - bodyW / 2;
   const bodyY = centerY - bodyH / 2;
-  const barrelW = range(rng, size * 0.14, size * 0.18);
-  const barrelH = range(rng, size * 0.05, size * 0.08);
-  const gripW = range(rng, size * 0.1, size * 0.14);
-  const gripH = range(rng, size * 0.18, size * 0.24);
+  const barrelW = range(rng, size * 0.15, size * 0.18);
+  const barrelH = range(rng, size * 0.06, size * 0.08);
+  const gripW = range(rng, size * 0.11, size * 0.13);
+  const gripH = range(rng, size * 0.19, size * 0.23);
 
   const body = svgElement('path', {
     d: `M ${round2(bodyX)} ${round2(bodyY)}
@@ -20,7 +20,7 @@ export const blasterBody: PrimitiveFn = ({ rng, palette, size, centerX, centerY,
         L ${round2(bodyX)} ${round2(bodyY + bodyH)} Z`,
     fill,
     stroke,
-    'stroke-width': strokeWidth,
+    'stroke-width': Math.max(2, strokeWidth * 1.4),
     'stroke-linejoin': 'round',
   });
   const barrel = svgElement('rect', {
