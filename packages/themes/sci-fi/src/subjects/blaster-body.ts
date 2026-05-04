@@ -3,14 +3,16 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const blasterBody: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bodyW = range(rng, size * 0.34, size * 0.38);
-  const bodyH = range(rng, size * 0.17, size * 0.21);
+  // Lucide-aligned: longer barrel + slightly taller grip — matches the
+  // "elongated functional parts" register Lucide uses for tools/weapons.
+  const bodyW = range(rng, size * 0.30, size * 0.34);
+  const bodyH = range(rng, size * 0.16, size * 0.20);
   const bodyX = centerX - bodyW / 2;
   const bodyY = centerY - bodyH / 2;
-  const barrelW = range(rng, size * 0.15, size * 0.18);
-  const barrelH = range(rng, size * 0.06, size * 0.08);
-  const gripW = range(rng, size * 0.11, size * 0.13);
-  const gripH = range(rng, size * 0.19, size * 0.23);
+  const barrelW = range(rng, size * 0.16, size * 0.20);
+  const barrelH = range(rng, size * 0.05, size * 0.07);
+  const gripW = range(rng, size * 0.10, size * 0.12);
+  const gripH = range(rng, size * 0.20, size * 0.24);
 
   const body = svgElement('path', {
     d: `M ${round2(bodyX)} ${round2(bodyY)}

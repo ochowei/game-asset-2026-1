@@ -8,7 +8,9 @@ const PINS_PER_SIDE = 3;
 export const chipBoard: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const half = range(rng, size * 0.19, size * 0.23);
+  // Lucide-aligned: slightly larger chip body so pins fit inside the
+  // [0.10, 0.90] bound with margin and the IC silhouette dominates.
+  const half = range(rng, size * 0.20, size * 0.24);
   const pinsPerSide = PINS_PER_SIDE;
   const pinLen = range(rng, size * 0.06, size * 0.08);
 

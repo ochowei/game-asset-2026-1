@@ -8,7 +8,9 @@ const BARS = 4;
 export const antennaArray: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const accent = pickColor(rng, palette, 'accent');
-  const mastLen = range(rng, size * 0.60, size * 0.68);
+  // Lucide-aligned: taller mast — matches `lucide:radio-tower` proportions
+  // where the vertical element dominates.
+  const mastLen = range(rng, size * 0.66, size * 0.74);
   const mastTopY = centerY - mastLen / 2;
   const mastBottomY = centerY + mastLen / 2;
   const bars = BARS;
