@@ -6,12 +6,13 @@ export const potionBottle: PrimitiveFn = ({ rng, palette, size, centerX, centerY
   // Lucide-aligned: tall slim flask body with a pinched neck and small cork —
   // matches the `lucide:flask-round` register (D&D-style potion).
   const bodyRX = range(rng, size * 0.18, size * 0.21);
-  const bodyRY = range(rng, size * 0.18, size * 0.22);
+  const bodyRY = range(rng, size * 0.20, size * 0.24);
   const bodyCY = centerY + size * 0.12;
   // Narrow neck (~33% of body width) is the affordance hint that says
-  // "bottle" rather than "vase" or "jar".
+  // "bottle" rather than "vase" or "jar". Tall neck so the body→neck→cork
+  // stack reads as a flask rather than a ball with a stopper.
   const neckW = range(rng, size * 0.06, size * 0.08);
-  const neckH = range(rng, size * 0.13, size * 0.16);
+  const neckH = range(rng, size * 0.18, size * 0.22);
   const neckTopY = bodyCY - bodyRY - neckH;
   const corkH = range(rng, size * 0.04, size * 0.06);
 

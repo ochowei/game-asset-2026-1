@@ -7,6 +7,7 @@ export interface ComposerContext {
   palette: Palette;
   size: number;
   primitives: readonly PrimitiveFn[];
+  decorations: readonly PrimitiveFn[];
 }
 
 export type ComposerFn = (ctx: ComposerContext) => string;

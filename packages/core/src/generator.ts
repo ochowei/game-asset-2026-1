@@ -23,7 +23,13 @@ export interface GeneratedIcon {
 export function generateOne({ theme, seed, size }: GenerateOneOptions): string {
   const rng = makeRng(`${theme.id}:${seed}`);
   const composer = pick(rng, theme.composers);
-  const body = composer({ rng, palette: theme.palette, size, primitives: theme.primitives });
+  const body = composer({
+    rng,
+    palette: theme.palette,
+    size,
+    primitives: theme.primitives,
+    decorations: theme.decorations,
+  });
   return svgDocument({ size, body });
 }
 

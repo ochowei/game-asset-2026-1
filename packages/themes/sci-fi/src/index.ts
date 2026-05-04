@@ -7,6 +7,7 @@ import {
   cogGear,
   antennaArray,
 } from './subjects';
+import { dotGrid, bracketFrame, scanlineBars } from './decorations';
 
 const palette = definePalette({
   id: 'sci-fi',
@@ -21,6 +22,7 @@ export const sciFi: Theme = defineTheme({
   displayName: 'Sci-Fi / Cyberpunk',
   palette,
   primitives: [blasterBody, chipBoard, energyOrb, hudFrame, cogGear, antennaArray],
+  decorations: [dotGrid, bracketFrame, scanlineBars],
   composers: [subject],
   tags: ['hud', 'gun', 'chip', 'energy', 'sci-fi', 'cyberpunk'],
 });

@@ -17,6 +17,7 @@ const t = defineTheme({
   displayName: 'Demo',
   palette,
   primitives: [circle],
+  decorations: [circle],
   composers: [layer],
   tags: ['demo'],
 });
@@ -35,10 +36,25 @@ describe('defineTheme', () => {
         displayName: 'Bad',
         palette,
         primitives: [],
+        decorations: [circle],
         composers: [layer],
         tags: [],
       }),
     ).toThrow(/primitive/);
+  });
+
+  it('rejects empty decorations', () => {
+    expect(() =>
+      defineTheme({
+        id: 'bad',
+        displayName: 'Bad',
+        palette,
+        primitives: [circle],
+        decorations: [],
+        composers: [layer],
+        tags: [],
+      }),
+    ).toThrow(/decoration/);
   });
 
   it('rejects empty composers', () => {
@@ -48,6 +64,7 @@ describe('defineTheme', () => {
         displayName: 'Bad',
         palette,
         primitives: [circle],
+        decorations: [circle],
         composers: [],
         tags: [],
       }),

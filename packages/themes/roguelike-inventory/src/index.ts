@@ -1,5 +1,6 @@
 import { defineTheme, definePalette, subject, type Theme } from '@procforge/core';
 import { coin, gem, key, bookCover, ringBand, dagger } from './subjects';
+import { dotPip, runeCross, ringMini } from './decorations';
 
 const palette = definePalette({
   id: 'roguelike-inventory',
@@ -14,6 +15,7 @@ export const roguelikeInventory: Theme = defineTheme({
   displayName: 'Roguelike Inventory',
   palette,
   primitives: [coin, gem, key, bookCover, ringBand, dagger],
+  decorations: [dotPip, runeCross, ringMini],
   composers: [subject],
   tags: ['inventory', 'item', 'potion', 'rune', 'roguelike', 'rpg'],
 });
