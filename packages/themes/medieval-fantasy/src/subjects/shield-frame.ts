@@ -3,13 +3,15 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const shieldFrame: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const halfW = range(rng, size * 0.24, size * 0.28);
-  const topY = centerY - range(rng, size * 0.30, size * 0.34);
+  // Lucide-aligned: heater shield (rounded flat top, sharper bottom point), wider
+  // and slightly taller than v1.2.0 to match `lucide:shield` proportions.
+  const halfW = range(rng, size * 0.26, size * 0.30);
+  const topY = centerY - range(rng, size * 0.32, size * 0.36);
   const shoulderY = topY + range(rng, size * 0.05, size * 0.08);
-  const bottomY = centerY + range(rng, size * 0.32, size * 0.36);
+  const bottomY = centerY + range(rng, size * 0.34, size * 0.38);
 
   const outer = `M ${round2(centerX - halfW)} ${round2(topY)}
-    Q ${round2(centerX)} ${round2(topY - halfW * 0.15)} ${round2(centerX + halfW)} ${round2(topY)}
+    Q ${round2(centerX)} ${round2(topY - halfW * 0.08)} ${round2(centerX + halfW)} ${round2(topY)}
     L ${round2(centerX + halfW)} ${round2(shoulderY + size * 0.18)}
     Q ${round2(centerX)} ${round2(bottomY)} ${round2(centerX - halfW)} ${round2(shoulderY + size * 0.18)}
     Z`;

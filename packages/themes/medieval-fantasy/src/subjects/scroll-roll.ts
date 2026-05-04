@@ -3,9 +3,11 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const scrollRoll: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bodyW = range(rng, size * 0.48, size * 0.54);
-  const bodyH = range(rng, size * 0.20, size * 0.24);
-  const capR = bodyH * 0.5;
+  // Lucide-aligned: wider, slimmer scroll body — closer to a parchment ratio
+  // than v1.2.0's chunky cylinder.
+  const bodyW = range(rng, size * 0.50, size * 0.56);
+  const bodyH = range(rng, size * 0.18, size * 0.22);
+  const capR = bodyH * 0.55;
   const leftX = centerX - bodyW / 2;
   const rightX = centerX + bodyW / 2;
 
