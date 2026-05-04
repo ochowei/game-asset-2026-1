@@ -3,15 +3,17 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const potionBottle: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bodyRX = range(rng, size * 0.19, size * 0.23);
-  const bodyRY = range(rng, size * 0.17, size * 0.21);
+  // Lucide-aligned: tall slim flask body with a pinched neck and small cork —
+  // matches the `lucide:flask-round` register (D&D-style potion).
+  const bodyRX = range(rng, size * 0.18, size * 0.21);
+  const bodyRY = range(rng, size * 0.18, size * 0.22);
   const bodyCY = centerY + size * 0.12;
-  // Narrow neck (≤ 50% of body width) is the affordance hint that says
+  // Narrow neck (~33% of body width) is the affordance hint that says
   // "bottle" rather than "vase" or "jar".
-  const neckW = range(rng, size * 0.08, size * 0.10);
-  const neckH = range(rng, size * 0.13, size * 0.17);
+  const neckW = range(rng, size * 0.06, size * 0.08);
+  const neckH = range(rng, size * 0.13, size * 0.16);
   const neckTopY = bodyCY - bodyRY - neckH;
-  const corkH = range(rng, size * 0.05, size * 0.08);
+  const corkH = range(rng, size * 0.04, size * 0.06);
 
   const body = svgElement('ellipse', {
     cx: round2(centerX),

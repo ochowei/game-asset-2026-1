@@ -3,16 +3,18 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const swordBlade: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bladeLen = range(rng, size * 0.46, size * 0.50);
-  const bladeWidth = range(rng, size * 0.07, size * 0.10);
-  const guardWidth = range(rng, size * 0.24, size * 0.30);
-  const guardHeight = Math.max(2, size * 0.04);
-  const gripLen = range(rng, size * 0.08, size * 0.1);
-  const pommelR = range(rng, size * 0.025, size * 0.035);
+  // Lucide-aligned proportions: long thin blade (~55% of icon) over a small crossguard,
+  // visible grip and tiny pommel — line-drawing silhouette of `lucide:sword`.
+  const bladeLen = range(rng, size * 0.52, size * 0.58);
+  const bladeWidth = range(rng, size * 0.06, size * 0.09);
+  const guardWidth = range(rng, size * 0.20, size * 0.26);
+  const guardHeight = Math.max(2, size * 0.035);
+  const gripLen = range(rng, size * 0.07, size * 0.09);
+  const pommelR = range(rng, size * 0.018, size * 0.025);
 
-  const tipY = centerY - bladeLen * 0.55;
-  const guardY = centerY + bladeLen * 0.45;
-  const gripBottomY = guardY + gripLen;
+  const tipY = centerY - bladeLen * 0.62;
+  const guardY = centerY + bladeLen * 0.38;
+  const gripBottomY = guardY + guardHeight + gripLen;
   const pommelY = gripBottomY + pommelR;
 
   const blade = svgElement('polygon', {
