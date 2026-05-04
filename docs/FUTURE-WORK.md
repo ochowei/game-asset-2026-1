@@ -22,6 +22,10 @@ Path B was first proposed in the v1.2.0 design conversation (see PR #19 / PR #20
 
 ## Path A — Lucide / Phosphor reference rewrite
 
+> **Status:** ✅ **Done as of v1.3.0** (2026-05-04). Shipped via PRs #22 (medieval-fantasy), #23 (sci-fi), #24 (cozy-farm), #25 (roguelike-inventory + CHANGELOG/ARCHITECTURE), and #26 (post-release version-string follow-ups). All 24 primitives retuned to a Lucide reference; primitive contract, RNG order, and v1.2.0 affordance hints preserved. Two structural shifts called out in CHANGELOG: medieval-fantasy `gemstone` (hex+spokes → cut-diamond) and `sword-blade` (grip semantic fix). Determinism baseline reset documented; see CHANGELOG v1.3.0 entry.
+>
+> Sequencing note: executed immediately after launch rather than at the M1 GTM 4-week mark suggested below. Works the same — buyer-feedback-driven decision about Path B remains open.
+
 ### Premise
 
 The v1.1.0 spec ([`2026-05-01-game-oriented-primitives-design.md`](./superpowers/specs/2026-05-01-game-oriented-primitives-design.md) §2) named **Lucide / Phosphor / Tabler** as the visual register the icons should match. The current 24 subject primitives were authored by an engineer from intuition, not from those reference icons. Path A closes that gap by translating each primitive's SVG path coordinates from the corresponding Lucide / Phosphor reference, while preserving the procgen variation structure (jitter ranges, RNG consumption order, decoration composer).
