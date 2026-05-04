@@ -3,8 +3,10 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const bookCover: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const w = range(rng, size * 0.40, size * 0.46);
-  const h = range(rng, size * 0.52, size * 0.58);
+  // Lucide-aligned: slimmer + taller book proportion — `lucide:book`
+  // register where the cover is portrait-oriented.
+  const w = range(rng, size * 0.36, size * 0.42);
+  const h = range(rng, size * 0.54, size * 0.60);
   const x = centerX - w / 2;
   const y = centerY - h / 2;
   const spineX = x + size * 0.05;

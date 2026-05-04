@@ -7,8 +7,10 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const gem: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const w = range(rng, size * 0.42, size * 0.48);
-  const h = range(rng, size * 0.52, size * 0.58);
+  // Lucide-aligned: slightly slimmer + taller — pushes toward the elongated
+  // brilliant-cut silhouette of `lucide:diamond`.
+  const w = range(rng, size * 0.40, size * 0.46);
+  const h = range(rng, size * 0.54, size * 0.60);
   const tipY = centerY + h * 0.5;
   const shoulderY = centerY - h * 0.15;
   const topY = centerY - h * 0.5;

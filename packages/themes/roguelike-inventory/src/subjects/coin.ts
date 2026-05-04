@@ -9,10 +9,12 @@ const STAR_POINTS = 5;
 export const coin: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const outer = range(rng, size * 0.28, size * 0.32);
+  // Lucide-aligned: slightly tighter coin so the outer ring stays crisp at
+  // 16/32 px — `lucide:circle-dot` register.
+  const outer = range(rng, size * 0.27, size * 0.31);
   const inner = outer * range(rng, 0.80, 0.86);
-  const starOuterR = inner * 0.7;
-  const starInnerR = starOuterR * 0.42;
+  const starOuterR = inner * 0.68;
+  const starInnerR = starOuterR * 0.40;
   const points: string[] = [];
   for (let i = 0; i < STAR_POINTS * 2; i++) {
     const a = -Math.PI / 2 + (i / (STAR_POINTS * 2)) * Math.PI * 2;
