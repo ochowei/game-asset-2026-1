@@ -8,7 +8,9 @@ const GRAINS = 5;
 export const wheatStalk: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const grainColor = pickColor(rng, palette, 'accent');
-  const stalkLen = range(rng, size * 0.52, size * 0.58);
+  // Lucide-aligned: taller stalk with slightly rounder grains — matches
+  // `lucide:wheat` proportion where the stalk is the dominant vertical.
+  const stalkLen = range(rng, size * 0.56, size * 0.62);
   const top = centerY - stalkLen / 2;
   const bottom = centerY + stalkLen / 2;
   const grains = GRAINS;

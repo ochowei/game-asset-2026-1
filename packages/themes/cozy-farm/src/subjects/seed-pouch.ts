@@ -3,9 +3,11 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const seedPouch: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const halfW = range(rng, size * 0.21, size * 0.25);
-  const topY = centerY - range(rng, size * 0.19, size * 0.23);
-  const bottomY = centerY + range(rng, size * 0.24, size * 0.28);
+  // Lucide-aligned: slimmer cinched neck and slightly deeper sack belly —
+  // closer to a drawstring-bag silhouette.
+  const halfW = range(rng, size * 0.20, size * 0.24);
+  const topY = centerY - range(rng, size * 0.18, size * 0.22);
+  const bottomY = centerY + range(rng, size * 0.26, size * 0.30);
   const neckW = halfW * 0.5;
 
   const sack = `M ${round2(centerX - neckW)} ${round2(topY)}

@@ -3,9 +3,11 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const animalHead: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const radius = range(rng, size * 0.23, size * 0.27);
+  // Lucide-aligned: slightly smaller face with taller ears — `lucide:cat`
+  // register where ears are a strong silhouette signal.
+  const radius = range(rng, size * 0.22, size * 0.26);
   const earBase = radius * 0.6;
-  const earTip = radius * range(rng, 1.05, 1.15);
+  const earTip = radius * range(rng, 1.20, 1.32);
 
   const face = svgElement('circle', {
     cx: round2(centerX),
