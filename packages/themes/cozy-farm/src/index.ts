@@ -7,6 +7,7 @@ import {
   wateringCan,
   wheatStalk,
 } from './subjects';
+import { leafSprig, seedCluster, flowerMini } from './decorations';
 
 const palette = definePalette({
   id: 'cozy-farm',
@@ -21,6 +22,7 @@ export const cozyFarm: Theme = defineTheme({
   displayName: 'Cozy Farm',
   palette,
   primitives: [hoeTool, fruit, seedPouch, animalHead, wateringCan, wheatStalk],
+  decorations: [leafSprig, seedCluster, flowerMini],
   composers: [subject],
   tags: ['food', 'seed', 'tool', 'animal', 'cozy', 'farm'],
 });

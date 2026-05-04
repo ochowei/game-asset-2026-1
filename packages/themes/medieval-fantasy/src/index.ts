@@ -7,6 +7,7 @@ import {
   axeHead,
   gemstone,
 } from './subjects';
+import { fleurMark, beadRing, cornerL } from './decorations';
 
 const palette = definePalette({
   id: 'medieval-fantasy',
@@ -21,6 +22,7 @@ export const medievalFantasy: Theme = defineTheme({
   displayName: 'Medieval Fantasy',
   palette,
   primitives: [swordBlade, shieldFrame, potionBottle, scrollRoll, axeHead, gemstone],
+  decorations: [fleurMark, beadRing, cornerL],
   composers: [subject],
   tags: ['weapon', 'potion', 'shield', 'scroll', 'rpg', 'fantasy'],
 });

@@ -16,6 +16,7 @@ const t = defineTheme({
     neutral: ['#222222'],
   }),
   primitives: [circle, polygon],
+  decorations: [circle],
   composers: [layer],
   tags: [],
 });

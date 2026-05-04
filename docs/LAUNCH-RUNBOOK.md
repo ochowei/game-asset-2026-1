@@ -1,13 +1,13 @@
 # Procforge Icons — Launch Runbook（上架運營手冊）
 
-**上架版本：v1.2.0**（recognisability pass，v1.1.0 因 baseline reset 已被取代）。原訂 D-day 因 v1.2.0 的視覺打磨工作後延 2 週；新 D-day 請挑距離 tag 之後最近的週二。見 `CHANGELOG.md`。
+**上架版本：v1.3.1**（Path A Lucide-aligned base shapes + 視覺修正 patch）。原訂 D-day 因連續三次視覺打磨工作（v1.2.0、v1.3.0、v1.3.1）總計後延 ~2 週；新 D-day 請挑距離 v1.3.1 tag 之後最近的週二。見 `CHANGELOG.md`。
 
-> **為何延後**：v1.1.0 雖然已實作 24 個 subject primitives，但內部 QA 發現 coin/gem/ring/cog 等多組 subject 在 64px 下視覺辨識度不足。v1.2.0 在不改架構的前提下做了 affordance hint 強化、subject stroke 加粗 1.4×、RNG jitter 收斂、decoration 分布從 25/50/25 改為 50/40/10。延後 2 週換到「上架就是高品質」，避免 launch 後才補 baseline reset。
+> **為何延後**：v1.1.0 雖然已實作 24 個 subject primitives，但內部 QA 發現 coin/gem/ring/cog 等多組 subject 在 64px 下視覺辨識度不足。v1.2.0 在不改架構的前提下做了 affordance hint 強化、subject stroke 加粗 1.4×、RNG jitter 收斂、decoration 分布從 25/50/25 改為 50/40/10。v1.3.0 進一步把所有 24 個 primitive 的 base shape 對齊到 Lucide reference（FUTURE-WORK §Path A）。v1.3.1 修了 v1.3.0 視覺 review 抓出來的三個 primitive（gemstone/potion-bottle/chip-board）、把 composer decoration 分布從 50/40/10 拉成 75/20/5、把裝飾從 core 的 generic shape（circle/polygon/path/star）換成各主題自己授權的 motif（fleur/bead/corner、dot-grid/bracket/scanline、leaf/seed/flower、pip/cross/ring），加上 manifest version 字串 bug。換到「上架就是高品質」，避免 launch 後才補 baseline reset。
 
 這份是工程之外的營運與行銷檢查清單。工程部分已全部完成，涵蓋三個 spec：
 - `docs/superpowers/specs/2026-04-25-procforge-icons-design.md`（Phase 1 原始設計，v1.0.0）
 - `docs/superpowers/specs/2026-05-01-game-oriented-primitives-design.md`（subject primitives，v1.1.0）
-- v1.2.0 為 v1.1.0 的實作層細修，未開新 spec（見 `CHANGELOG.md` 的 v1.2.0 條目）
+- v1.2.0 / v1.3.0 / v1.3.1 為 v1.1.0 的實作層細修，未開新 spec（見 `CHANGELOG.md` 對應條目；Path A 設計理由見 `docs/FUTURE-WORK.md`）
 
 對應的 plan：`docs/superpowers/plans/2026-04-25-procforge-icons-phase1.md`。
 
@@ -19,17 +19,17 @@
 
 這些是 Phase 1 工程明確排除的項目——屬於人工設計，必須在 D-day 之前產出。
 
-> **版本鎖定**：§A 所有視覺素材必須用上架版本（v1.2.0）的 generator 跑出來。v1.1.0 的 seed 在 v1.2.0 產出的 SVG 不同（baseline reset），素材用錯版本會導致封面 / GIF / 截圖跟下載內容對不上。
+> **版本鎖定**：§A 所有視覺素材必須用上架版本（v1.3.1）的 generator 跑出來。各次 baseline reset 之間 seed 對應的 SVG 不同，素材用錯版本會導致封面 / GIF / 截圖跟下載內容對不上。
 
 ### A.1 封面圖
 
-> 兩個尺寸的合成 PNG 由 `pnpm produce-cover` 自動產出（baseSeed=`cover`，固定佈局）。版型與文字若要改動,編輯 `scripts/produce-cover.ts`。產完仍須人工視覺驗收後再勾 `[x]`。**注意:每次 baseline reset(目前 v1.2.0)後都必須重跑此指令**,不然 cover icon 跟 starter-pack icon 對不上。
+> 兩個尺寸的合成 PNG 由 `pnpm produce-cover` 自動產出（baseSeed=`cover`，固定佈局）。版型與文字若要改動,編輯 `scripts/produce-cover.ts`。產完仍須人工視覺驗收後再勾 `[x]`。**注意:每次 baseline reset(目前 v1.3.1)後都必須重跑此指令**,不然 cover icon 跟 starter-pack icon 對不上。
 
 - [ ] **縮圖（315×250）** — itch listing 縮圖（由 `pnpm produce-cover` 涵蓋，待視覺驗收）
 - [ ] **完整版（630×500）** — itch listing hero（由 `pnpm produce-cover` 涵蓋，待視覺驗收）
 - [x] 深色背景 ~#1a1a2e、8×6 icon 排列（每主題 12 個）— 已寫進 `scripts/produce-cover.ts`
 - [x] 標題：「Procforge Icons」；副標：「200 procedural icons · MIT · No AI」— 已寫進 script
-- [x] 角落徽章：「v1.2」(GitHub 連結移到 itch listing 描述,spec §6.4 不強制放在封面)
+- [x] 角落徽章：「v1.3」(GitHub 連結移到 itch listing 描述,spec §6.4 不強制放在封面)
 - [ ] 不放 generator UI 截圖；文字精簡（315×250 縮圖下要可讀）— 視覺驗收項
 
 ### A.2 Demo GIF
@@ -58,17 +58,17 @@
 
 工程相關項目已完成（標 `[x]`）；剩下的營運項目標 `[ ]`：
 
-- [x] 200 個 icon 全部產出 + 視覺 QA — 由 `pnpm produce-pack` + `pnpm qa-sample` 涵蓋（已用 v1.2.0 重產）
-- [x] starter-pack.zip < 6 MB 已驗證 — `pnpm prelaunch-check` 在 CI 強制（v1.2.0 為 1.92 MB）
-- [x] GitHub repo 公開、README 完整、v1.0.0 tag 已 push（2026-04-28）、v1.1.0 tag 已 push（2026-05-01）、v1.2.0 tag 待 push（recognisability pass）
+- [x] 200 個 icon 全部產出 + 視覺 QA — 由 `pnpm produce-pack` + `pnpm qa-sample` 涵蓋（已用 v1.3.1 重產）
+- [x] starter-pack.zip < 6 MB 已驗證 — `pnpm prelaunch-check` 在 CI 強制（v1.3.1 為 ~1.9 MB）
+- [x] GitHub repo 公開、README 完整、v1.0.0 tag 已 push（2026-04-28）、v1.1.0 tag 已 push（2026-05-01）、v1.2.0 tag 已 push、v1.3.0 tag 已 push（2026-05-04，Path A）、v1.3.1 tag 待 push（gemstone/potion/chip-board fix + manifest version fix）
 - [x] 4 篇 devlog 草稿備好 — `itch-page/devlog-templates/` 已交付
 - [x] repo 內 MIT LICENSE 檔
-- [ ] **`scripts/produce-starter-pack.ts` 內硬寫的版本字串改為 v1.2.0**（zip 內 README）
-- [x] **重跑 `pnpm produce-pack` 用 v1.2.0 產 starter-pack.zip**（v1.1.0 的 zip 已過時 — baseline reset）
+- [x] **`scripts/produce-starter-pack.ts` 內硬寫的版本字串改為 single `PACK_VERSION` 常數**（v1.3.1 修正，先前 v1.3.0 manifest 仍寫 `version: '1.1.0'`）
+- [x] **重跑 `pnpm produce-pack` 用 v1.3.1 產 starter-pack.zip**（前次 baseline 的 zip 已過時）
 - [ ] **Web preview 在 itch HTML5 sandbox 內可運作** — 需上傳測試 listing 驗證（無法自動化）
-- [ ] **封面圖兩個尺寸備好**（見 §A.1，須用 v1.2.0 產出）— 跑 `pnpm produce-cover` 後再人工視覺檢查
-- [ ] **Demo GIF < 3 MB、循環無痕**（見 §A.2，須用 v1.2.0 產出）
-- [ ] **5 張截圖備好**（見 §A.3，須用 v1.2.0 產出）
+- [ ] **封面圖兩個尺寸備好**（見 §A.1，須用 v1.3.1 產出）— 跑 `pnpm produce-cover` 後再人工視覺檢查
+- [ ] **Demo GIF < 3 MB、循環無痕**（見 §A.2，須用 v1.3.1 產出）
+- [ ] **5 張截圖備好**（見 §A.3，須用 v1.3.1 產出）
 - [ ] **itch description 拼字檢查** — `itch-page/description.md` 貼到正式 listing 前再過一次
 - [ ] **Reddit / Twitter / Bluesky 帳號建好、首發貼文草稿備好**（見 §B）
 
@@ -76,13 +76,13 @@
 
 ## D. D-day 與首月 GTM（spec §7.4）
 
-挑一個週二當 D-day。實際排程時請把每列的相對日期換算成絕對日期。**v1.2.0 的 D-day 比原 v1.1.0 規劃延後 2 週**(因為視覺打磨工作);所有 D+N 相對日期不變,只是基準週二往後挪兩週。
+挑一個週二當 D-day。實際排程時請把每列的相對日期換算成絕對日期。**v1.3.x 系列（v1.2.0 → v1.3.0 → v1.3.1）的 D-day 比原 v1.1.0 規劃延後約 2 週**(因為三輪視覺打磨工作累積);所有 D+N 相對日期不變,只是基準週二往後挪。
 
 ### D.1 Week 1 — 集中曝光
 
 | Day | 動作 | 完成 |
 |---|---|---|
-| D-day（週二） | itch listing 09:00 ET 上線；GitHub v1.2.0 release 已 push（取代 v1.1.0 為公開上架版本） | [ ] |
+| D-day（週二） | itch listing 09:00 ET 上線；GitHub v1.3.1 release 已 push（取代 v1.3.0 為公開上架版本） | [ ] |
 | D-day | 發 r/proceduralgeneration；Twitter / Bluesky 第一波貼文 | [ ] |
 | D+1 | 發 r/IndieDev、r/gamedev — 每個 sub 換不同切角 | [ ] |
 | D+2 | 發 r/godot、r/Unity3D — 引擎中立、兩邊都吃 | [ ] |
@@ -113,10 +113,10 @@
 |---|---|---|
 | D+22 | Devlog #4 「What's next: Phase 2 themed expansion packs」（付費前奏） | [ ] |
 | D+25 | Discord / itch 投票 — 「Which expansion theme do you want next?」 | [ ] |
-| D+28 | Release **v1.3**（recency 用,內容待 D+25 投票結果決定 — 例:擴量 50 icons、palette tweak、或新 composer) | [ ] |
+| D+28 | Release **v1.4**（recency 用,內容待 D+25 投票結果決定 — 例:擴量 50 icons、palette tweak、或新 composer) | [ ] |
 | D+30 | M1-end KPI 檢查 + 內部 post-mortem | [ ] |
 
-> 註:原規劃中的「D+28 v1.1」已於 2026-05-01 以 v1.1.0 出貨(subject primitives + baseline reset),v1.2.0 為 launch 前的 recognisability pass(再次 baseline reset),故 D+28 的「launch 後 recency tag」順延至 v1.3。
+> 註:原規劃中的「D+28 v1.1」已於 2026-05-01 以 v1.1.0 出貨(subject primitives + baseline reset);v1.2.0 為 launch 前的 recognisability pass(再次 baseline reset);v1.3.0 為 launch 前的 Path A Lucide-aligned base shapes(第三次 baseline reset);v1.3.1 為 launch 前的 gemstone/potion/chip-board 視覺修正 + manifest version bug fix(第四次 baseline reset,僅影響三個 primitive)。故 D+28 的「launch 後 recency tag」順延至 v1.4。
 
 ---
 
@@ -159,8 +159,10 @@ Week 1–4 每週五各記一次，之後改月度。
 ## H. 上架後 follow-up（M1+）
 
 - [x] **v1.1.0 發布** — 已於 2026-05-01 上架前完成（subject primitives + baseline reset，見 `CHANGELOG.md`）
-- [x] **v1.2.0 發布** — launch 前 recognisability pass(affordance + jitter + decoration distribution),baseline 第三次 reset。tag 待 push。
-- [ ] **v1.3 發布**(D+28) — 內容由 D+25 社群投票決定,與 devlog #4 互連
+- [x] **v1.2.0 發布** — launch 前 recognisability pass(affordance + jitter + decoration distribution),baseline 第二次 reset。
+- [x] **v1.3.0 發布** — 已於 2026-05-04 上架前完成（Path A Lucide-aligned base shapes，baseline 第三次 reset，見 `docs/FUTURE-WORK.md` §Path A）
+- [ ] **v1.3.1 發布** — gemstone/potion-bottle/chip-board 視覺修正 + `produce-starter-pack.ts` 的 manifest version 字串 bug fix（baseline 第四次 reset，僅三個 primitive 受影響），tag 待 push
+- [ ] **v1.4 發布**(D+28) — 內容由 D+25 社群投票決定,與 devlog #4 互連
 - [ ] **開放 GitHub Issues 收社群主題請求**（Phase 2 需求訊號 — spec §5.3）
 - [ ] **M1 post-mortem 文件**（D+30） — 哪些做對、哪些沒打中、Phase 2 啟動決策
 - [ ] **Phase 2 spec** — 主題擴充包（spec §8.1） — 若訊號健康，D+25 開始草擬
