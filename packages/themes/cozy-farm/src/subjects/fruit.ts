@@ -4,11 +4,13 @@ export const fruit: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strok
   const stroke = pickColor(rng, palette, 'neutral');
   const body = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
   const leafColor = pickColor(rng, palette, 'secondary');
-  const radius = range(rng, size * 0.23, size * 0.26);
-  const stemLen = range(rng, size * 0.07, size * 0.09);
+  // Lucide-aligned: slightly tighter body, smaller stem + leaf — matches
+  // `lucide:apple` register (compact silhouette).
+  const radius = range(rng, size * 0.22, size * 0.25);
+  const stemLen = range(rng, size * 0.06, size * 0.08);
   const stemTopY = centerY - radius - stemLen;
-  const leafW = range(rng, size * 0.1, size * 0.14);
-  const leafH = range(rng, size * 0.06, size * 0.08);
+  const leafW = range(rng, size * 0.10, size * 0.13);
+  const leafH = range(rng, size * 0.05, size * 0.07);
 
   const bodyCircle = svgElement('circle', {
     cx: round2(centerX),

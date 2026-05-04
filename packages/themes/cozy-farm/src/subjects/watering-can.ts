@@ -3,8 +3,10 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const wateringCan: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bodyW = range(rng, size * 0.34, size * 0.38);
-  const bodyH = range(rng, size * 0.29, size * 0.33);
+  // Lucide-aligned: slightly smaller body so the spout + handle have more
+  // visual breathing room and the silhouette feels less blocky.
+  const bodyW = range(rng, size * 0.32, size * 0.36);
+  const bodyH = range(rng, size * 0.28, size * 0.32);
   const left = centerX - bodyW * 0.4;
   const right = centerX + bodyW * 0.4;
   const top = centerY - bodyH * 0.3;
