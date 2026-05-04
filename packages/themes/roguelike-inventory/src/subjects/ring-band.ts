@@ -7,9 +7,11 @@ export const ringBand: PrimitiveFn = ({ rng, palette, size, centerX, centerY, st
   const stroke = pickColor(rng, palette, 'neutral');
   const bandColor = pickColor(rng, palette, 'primary');
   const stoneColor = pickColor(rng, palette, 'accent');
-  const bandR = range(rng, size * 0.21, size * 0.24);
-  const settingW = range(rng, size * 0.18, size * 0.22);
-  const settingH = range(rng, size * 0.11, size * 0.14);
+  // Lucide-aligned: tighter band + smaller setting; the stone (0.06) stays
+  // load-bearing as the recognisability hint.
+  const bandR = range(rng, size * 0.20, size * 0.23);
+  const settingW = range(rng, size * 0.16, size * 0.20);
+  const settingH = range(rng, size * 0.10, size * 0.13);
   const settingY = centerY - bandR;
   const stoneR = size * 0.06;
 

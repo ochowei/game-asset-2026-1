@@ -6,12 +6,14 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const key: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
+  // Lucide-aligned: longer shaft + slightly larger teeth — matches
+  // `lucide:key` register where the shaft dominates and the teeth are clear.
   const bowR = range(rng, size * 0.10, size * 0.12);
-  const shaftLen = range(rng, size * 0.30, size * 0.34);
+  const shaftLen = range(rng, size * 0.32, size * 0.36);
   const bowX = centerX - shaftLen / 2 - bowR * 0.5;
   const tipX = bowX + shaftLen;
   const toothW = range(rng, size * 0.06, size * 0.08);
-  const toothH = range(rng, size * 0.09, size * 0.11);
+  const toothH = range(rng, size * 0.10, size * 0.12);
 
   const bow = svgElement('circle', {
     cx: round2(bowX),

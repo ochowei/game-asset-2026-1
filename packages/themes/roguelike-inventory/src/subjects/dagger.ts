@@ -3,12 +3,14 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 export const dagger: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const bladeLen = range(rng, size * 0.32, size * 0.36);
-  const bladeW = range(rng, size * 0.06, size * 0.08);
-  const guardW = range(rng, size * 0.18, size * 0.22);
-  const guardH = Math.max(2, size * 0.045);
-  const gripLen = range(rng, size * 0.07, size * 0.09);
-  const pommelR = range(rng, size * 0.04, size * 0.05);
+  // Lucide-aligned: longer thinner blade + smaller pommel — same register
+  // shift as `sword-blade` but at dagger scale.
+  const bladeLen = range(rng, size * 0.36, size * 0.40);
+  const bladeW = range(rng, size * 0.05, size * 0.07);
+  const guardW = range(rng, size * 0.16, size * 0.20);
+  const guardH = Math.max(2, size * 0.04);
+  const gripLen = range(rng, size * 0.06, size * 0.08);
+  const pommelR = range(rng, size * 0.03, size * 0.04);
 
   const tipY = centerY - bladeLen * 0.5;
   const guardY = centerY + bladeLen * 0.45;
