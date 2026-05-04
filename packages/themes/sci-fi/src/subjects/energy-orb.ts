@@ -9,11 +9,13 @@ const RAYS = 8;
 export const energyOrb: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
-  const outerR = range(rng, size * 0.22, size * 0.28);
-  const innerR = outerR * range(rng, 0.50, 0.62);
+  // Lucide-aligned: smaller compact orb with longer pronounced rays —
+  // matches `lucide:sun` register (small center, 8 visible rays).
+  const outerR = range(rng, size * 0.20, size * 0.24);
+  const innerR = outerR * range(rng, 0.45, 0.55);
   const rays = RAYS;
-  const rayInner = outerR * 1.05;
-  const rayOuter = outerR * range(rng, 1.28, 1.40);
+  const rayInner = outerR * 1.10;
+  const rayOuter = outerR * range(rng, 1.40, 1.55);
 
   const ringOuter = svgElement('circle', {
     cx: round2(centerX),

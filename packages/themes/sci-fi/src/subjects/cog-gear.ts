@@ -8,8 +8,10 @@ const TEETH = 8;
 export const cogGear: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'primary') : pickColor(rng, palette, 'accent');
+  // Lucide-aligned: slightly larger gear, smaller axle hole — matches the
+  // mechanical-gear register (notched teeth + thin axle, not a wheel hub).
   const teeth = TEETH;
-  const outer = range(rng, size * 0.26, size * 0.30);
+  const outer = range(rng, size * 0.27, size * 0.32);
   const inner = outer * range(rng, 0.78, 0.84);
   const points: string[] = [];
   for (let i = 0; i < teeth * 2; i++) {
@@ -28,7 +30,7 @@ export const cogGear: PrimitiveFn = ({ rng, palette, size, centerX, centerY, str
   const hole = svgElement('circle', {
     cx: round2(centerX),
     cy: round2(centerY),
-    r: round2(outer * 0.3),
+    r: round2(outer * 0.26),
     fill: pickColor(rng, palette, 'secondary'),
     stroke,
     'stroke-width': Math.max(1, strokeWidth * 0.7),

@@ -2,8 +2,10 @@ import { range, pickColor, round2, svgElement, type PrimitiveFn } from '@procfor
 
 export const hudFrame: PrimitiveFn = ({ rng, palette, size, centerX, centerY, strokeWidth }) => {
   const stroke = pickColor(rng, palette, 'neutral');
-  const half = range(rng, size * 0.27, size * 0.32);
-  const armLen = half * range(rng, 0.48, 0.58);
+  // Lucide-aligned: longer corner-bracket arms for clearer "framing
+   // crosshair" register — `lucide:scan` uses prominent corner ticks.
+  const half = range(rng, size * 0.28, size * 0.32);
+  const armLen = half * range(rng, 0.55, 0.65);
   const fill = rng() < 0.5 ? pickColor(rng, palette, 'accent') : pickColor(rng, palette, 'primary');
 
   const corner = (cx: number, cy: number, dx: number, dy: number): string =>
