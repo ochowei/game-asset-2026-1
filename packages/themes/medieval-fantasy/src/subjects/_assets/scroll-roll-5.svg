@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <g>
-    <rect x="14" y="14" width="36" height="36" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
-    <ellipse cx="32" cy="14" rx="18" ry="4" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
-    <ellipse cx="32" cy="50" rx="18" ry="4" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
-    <rect x="10" y="30" width="44" height="4" fill="{{accent}}" stroke="{{neutral}}" stroke-width="1.5"/>
-  </g>
-</svg>

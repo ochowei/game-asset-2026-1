@@ -1,12 +1,5 @@
 import { defineTheme, definePalette, subject, type Theme } from '@procforge/core';
-import {
-  swordBlade,
-  shieldFrame,
-  potionBottle,
-  scrollRoll,
-  axeHead,
-  gemstone,
-} from './subjects';
+import { swordBlade, shieldFrame, potionBottle, gemstone } from './subjects';
 import { fleurMark, beadRing, cornerL } from './decorations';
 
 const palette = definePalette({
@@ -21,8 +14,8 @@ export const medievalFantasy: Theme = defineTheme({
   id: 'medieval-fantasy',
   displayName: 'Medieval Fantasy',
   palette,
-  primitives: [swordBlade, shieldFrame, potionBottle, scrollRoll, axeHead, gemstone],
+  primitives: [swordBlade, shieldFrame, potionBottle, gemstone],
   decorations: [fleurMark, beadRing, cornerL],
   composers: [subject],
-  tags: ['weapon', 'potion', 'shield', 'scroll', 'rpg', 'fantasy'],
+  tags: ['weapon', 'potion', 'shield', 'gem', 'rpg', 'fantasy'],
 });

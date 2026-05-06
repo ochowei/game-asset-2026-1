@@ -1,6 +1,6 @@
 {
-  "name": "@procforge/theme-roguelike-inventory",
-  "version": "1.4.2",
+  "name": "@procforge/theme-cozy-farm",
+  "version": "1.4.1",
   "private": true,
   "type": "module",
   "main": "./dist/index.js",

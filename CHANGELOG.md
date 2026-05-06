@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.4.2 — 2026-05-06
+
+### medieval-fantasy subject reduction (4 subjects)
+
+- Removed `axe-head` and `scroll-roll` primitives + their 10 base SVGs + their tests. Both subjects failed visual QA at 32 px (axe blade silhouettes read as flagpoles; scroll roll-end + parchment composition read as banded barrels). The pattern was geometrically dense in ways that don't reduce well to 32 px.
+- Final medieval-fantasy subject list: **sword, shield, potion, gem** (4 subjects × 5 bases = 20 bases).
+- Theme tags updated: `['weapon', 'potion', 'shield', 'gem', 'rpg', 'fantasy']` (replaced 'scroll').
+- Pack still ships 50 medieval-fantasy icons per pack — procgen now picks among 4 primitives instead of 6, so each subject appears more frequently per pack.
+- Determinism baseline reset for medieval-fantasy (subject pool changed → byte output changes for same seed).
+
+### Pre-release iterations bundled into this entry
+
+- v1.4.1 (gallery labels): starter-pack `index.html` shows version badge and per-icon numbered labels (01–50) plus seed for screenshot annotation.
+- v1.4.0–v1.4.1 base iterations: two rounds of base redesign (AI-generated → Lucide-style hand-drawn → head-dominant axes + corner-curl scrolls). The axe and scroll redesigns improved at 64 px but did not reach 32 px legibility — leading to the v1.4.2 subject reduction.
+
 ## v1.4.0 — 2026-05-06
 
 ### Brand pillar restructure

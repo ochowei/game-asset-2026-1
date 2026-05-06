@@ -9,7 +9,7 @@ import { cozyFarm } from '@procforge/theme-cozy-farm';
 import { roguelikeInventory } from '@procforge/theme-roguelike-inventory';
 import JSZip from 'jszip';
 
-const PACK_VERSION = '1.4.2';
+const PACK_VERSION = '1.4.1';
 const THEMES: Theme[] = [medievalFantasy, sciFi, cozyFarm, roguelikeInventory];
 const ICONS_PER_THEME = 50;
 const SIZES = [16, 32, 64, 128, 256];

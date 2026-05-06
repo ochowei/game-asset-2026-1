@@ -30,9 +30,9 @@ export const swordBladeBases: readonly string[] = [
     <line x1="32" y1="10" x2="32" y2="37" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
   `<g>
-    <polygon points="13.41,53.41 53.41,13.41 50.59,10.59 10.59,50.59" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
-    <polygon points="50.59,53.41 53.41,50.59 13.41,10.59 10.59,13.41" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
-    <polygon points="28.87,40.79 27.45,42.21 21.79,36.55 23.21,35.13" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
-    <polygon points="35.13,40.79 36.55,42.21 42.21,36.55 40.79,35.13" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <path d="M28,8 Q42,18 42,32 Q40,42 36,48 L28,48 Q24,42 22,32 Q22,18 28,8 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5" stroke-linejoin="round"/>
+    <rect x="14" y="46" width="36" height="4" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="1.5"/>
+    <rect x="28" y="50" width="8" height="6" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <circle cx="32" cy="58" r="3" fill="{{accent}}" stroke="{{neutral}}" stroke-width="2"/>
   </g>`,
 ] as const;

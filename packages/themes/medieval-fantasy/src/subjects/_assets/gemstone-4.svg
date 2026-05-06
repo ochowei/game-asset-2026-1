@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
   <g>
-    <path d="M32,18 C28,8 14,12 16,28 C18,40 32,52 32,52 C32,52 46,40 48,28 C50,12 36,8 32,18 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
-    <line x1="32" y1="18" x2="32" y2="50" stroke="{{secondary}}" stroke-width="1"/>
+    <ellipse cx="32" cy="32" rx="22" ry="14" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <line x1="10" y1="32" x2="54" y2="32" stroke="{{secondary}}" stroke-width="2.5"/>
+    <line x1="20" y1="22" x2="20" y2="42" stroke="{{secondary}}" stroke-width="2.5"/>
+    <line x1="32" y1="18" x2="32" y2="46" stroke="{{secondary}}" stroke-width="2.5"/>
+    <line x1="44" y1="22" x2="44" y2="42" stroke="{{secondary}}" stroke-width="2.5"/>
   </g>
 </svg>

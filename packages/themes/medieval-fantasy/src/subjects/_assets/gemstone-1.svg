@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
   <g>
-    <path d="M32,8 L52,28 L32,56 L12,28 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
-    <line x1="12" y1="28" x2="52" y2="28" stroke="{{secondary}}" stroke-width="1"/>
-    <line x1="32" y1="8" x2="22" y2="28" stroke="{{secondary}}" stroke-width="1"/>
-    <line x1="32" y1="8" x2="42" y2="28" stroke="{{secondary}}" stroke-width="1"/>
-    <line x1="32" y1="56" x2="22" y2="28" stroke="{{secondary}}" stroke-width="1"/>
-    <line x1="32" y1="56" x2="42" y2="28" stroke="{{secondary}}" stroke-width="1"/>
+    <path d="M32,8 L52,28 L32,56 L12,28 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="12" y1="28" x2="52" y2="28" stroke="{{secondary}}" stroke-width="2.5"/>
+    <line x1="32" y1="8" x2="22" y2="28" stroke="{{secondary}}" stroke-width="2.5"/>
+    <line x1="32" y1="8" x2="42" y2="28" stroke="{{secondary}}" stroke-width="2.5"/>
+    <line x1="32" y1="56" x2="22" y2="28" stroke="{{secondary}}" stroke-width="2.5"/>
+    <line x1="32" y1="56" x2="42" y2="28" stroke="{{secondary}}" stroke-width="2.5"/>
   </g>
 </svg>

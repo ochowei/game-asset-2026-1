@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <g>
-    <line x1="32" y1="22" x2="32" y2="54" stroke="{{neutral}}" stroke-width="4" stroke-linecap="round"/>
-    <path d="M32,22 L46,24 L46,34 L32,36 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
-    <line x1="46" y1="24" x2="46" y2="34" stroke="{{accent}}" stroke-width="1"/>
-  </g>
-</svg>

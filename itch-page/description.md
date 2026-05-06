@@ -7,7 +7,7 @@
 ## What you get
 
 - **200 icons** across 4 themes (50 per theme):
-  - 🗡️ Medieval Fantasy — weapons, potions, shields, scrolls
+  - 🗡️ Medieval Fantasy — swords, shields, potions, gemstones
   - 🚀 Sci-Fi / Cyberpunk — guns, chips, energy, HUD
   - 🌾 Cozy Farm — food, seeds, tools, animals
   - 🎒 Roguelike Inventory — items, runes, buffs
