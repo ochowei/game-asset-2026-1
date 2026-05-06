@@ -1,5 +1,39 @@
 # Changelog
 
+## v1.4.0 — 2026-05-06
+
+### Brand pillar restructure
+
+- Removed: "No AI" pillar.
+- Renamed: "100% Procedural" → "Procedural Variation".
+- Added: "Deterministic Runtime" — `(theme, seed)` produces byte-identical SVG, no API calls, no network.
+- Three pillars going forward: **Deterministic Runtime / Procedural Variation / Open-source Generator**.
+
+### Architecture: Path B for medieval-fantasy
+
+- medieval-fantasy theme converted from hand-coded primitives to AI-designed base SVGs varied at runtime by procgen.
+- 30 new base SVGs (5 per subject × 6 subjects) committed under `packages/themes/medieval-fantasy/src/subjects/_assets/`.
+- New core helper `applyBaseVariation` (`@procforge/core`).
+- New build step `pnpm build:bases` (`scripts/build-bases.ts`) — runs as part of `pnpm build`.
+- New manual curation tool `scripts/qa-base-preview.ts`.
+- Committed prompt template `scripts/ai-base-prompt.md` for transparency.
+- 6 medieval-fantasy primitive `.ts` files reduced from ~50 LOC each to ~10 LOC; tests rewritten to assert base presence + palette substitution + transform bounds.
+
+### Other 3 themes
+
+- sci-fi, cozy-farm, roguelike-inventory unchanged. They remain on the v1.3.1 hand-coded primitive model. Determinism baselines for those themes are unchanged from v1.3.1.
+
+### Determinism note
+
+medieval-fantasy SVG output is byte-different from v1.3.1 for the same seed, by design (the bases are entirely new shapes). The determinism contract `(theme, seed) → byte-identical` is preserved going forward from v1.4.0. Downstream consumers who pinned specific medieval-fantasy seed outputs will need to refresh.
+
+### Documentation
+
+- New: `docs/AI-AUTHORING.md` — authoring pipeline manual.
+- New: `docs/superpowers/specs/2026-05-06-path-b-v1.4.0-design.md` — design spec.
+- New: `docs/superpowers/plans/2026-05-06-path-b-v1.4.0.md` — implementation plan.
+- Updated: `docs/THEME-AUTHORING.md`, `docs/ARCHITECTURE.md`, `docs/FUTURE-WORK.md`, `README.md`.
+
 ## v1.3.1 — 2026-05-05 (post-release visual + metadata fixes)
 
 ### Breaking — determinism baseline reset (composer-wide)
