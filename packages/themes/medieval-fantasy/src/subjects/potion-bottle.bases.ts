@@ -2,33 +2,39 @@
 // Source: packages/themes/medieval-fantasy/src/subjects/_assets/potion-bottle-*.svg
 
 export const potionBottleBases: readonly string[] = [
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M26,8 L38,8 L38,22 Q50,32 50,46 Q50,58 32,58 Q14,58 14,46 Q14,32 26,22 Z" fill="{{primary}}"/>
-    <path d="M14,46 Q32,40 50,46" stroke="{{accent}}" stroke-width="2" fill="none"/>
-    <rect x="24" y="4" width="16" height="6" fill="{{secondary}}"/>
+  `<g>
+    <rect x="27" y="6" width="10" height="4" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="28" y="10" width="8" height="10" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <path d="M24,20 L40,20 L52,54 L12,54 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <line x1="16" y1="42" x2="48" y2="42" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M28,12 L36,12 L36,26 Q40,28 40,32 L40,54 Q40,60 32,60 Q24,60 24,54 L24,32 Q24,28 28,26 Z" fill="{{primary}}"/>
-    <path d="M24,40 L40,40" stroke="{{accent}}" stroke-width="2"/>
-    <rect x="26" y="6" width="12" height="6" fill="{{secondary}}"/>
+  `<g>
+    <rect x="27" y="4" width="10" height="4" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="28" y="8" width="8" height="14" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <circle cx="32" cy="42" r="16" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <circle cx="28" cy="40" r="1.5" fill="{{accent}}"/>
+    <circle cx="36" cy="46" r="1.5" fill="{{accent}}"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M28,14 L36,14 L36,22 Q52,30 52,44 Q52,58 32,58 Q12,58 12,44 Q12,30 28,22 Z" fill="{{primary}}"/>
-    <path d="M12,40 Q22,34 32,40 Q42,46 52,40" stroke="{{accent}}" stroke-width="2" fill="none"/>
-    <circle cx="22" cy="46" r="2" fill="{{accent}}"/>
-    <circle cx="40" cy="50" r="2" fill="{{accent}}"/>
-    <rect x="26" y="8" width="12" height="6" fill="{{secondary}}"/>
+  `<g>
+    <rect x="28" y="4" width="8" height="2" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="29" y="6" width="6" height="8" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="25" y="14" width="14" height="42" rx="4" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <line x1="26" y1="30" x2="38" y2="30" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M26,14 L38,14 L38,22 L48,28 L48,56 Q48,58 46,58 L18,58 Q16,58 16,56 L16,28 L26,22 Z" fill="{{primary}}"/>
-    <rect x="20" y="36" width="24" height="10" fill="{{accent}}" stroke="{{neutral}}" stroke-width="2"/>
-    <rect x="22" y="6" width="20" height="8" fill="{{secondary}}"/>
+  `<g>
+    <rect x="22" y="8" width="20" height="8" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <path d="M22,22 L26,16 L38,16 L42,22 Z" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="18" y="22" width="28" height="34" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <rect x="22" y="32" width="20" height="10" fill="none" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M28,10 L36,10 L36,16 Q44,20 44,26 Q44,32 36,34 Q50,38 50,48 Q50,58 32,58 Q14,58 14,48 Q14,38 28,34 Q20,32 20,26 Q20,20 28,16 Z" fill="{{primary}}"/>
-    <circle cx="22" cy="48" r="2" fill="{{accent}}"/>
-    <circle cx="32" cy="52" r="2" fill="{{accent}}"/>
-    <circle cx="42" cy="48" r="2" fill="{{accent}}"/>
-    <rect x="26" y="4" width="12" height="6" fill="{{secondary}}"/>
+  `<g>
+    <rect x="28" y="8" width="8" height="4" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="29" y="12" width="6" height="4" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <ellipse cx="32" cy="46" rx="14" ry="10" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <ellipse cx="32" cy="24" rx="10" ry="8" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <rect x="29" y="29" width="6" height="8" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <circle cx="28" cy="46" r="1.2" fill="{{accent}}"/>
+    <circle cx="32" cy="50" r="1.2" fill="{{accent}}"/>
+    <circle cx="36" cy="46" r="1.2" fill="{{accent}}"/>
   </g>`,
 ] as const;

@@ -2,31 +2,26 @@
 // Source: packages/themes/medieval-fantasy/src/subjects/_assets/shield-frame-*.svg
 
 export const shieldFrameBases: readonly string[] = [
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M14,10 Q14,8 16,8 L48,8 Q50,8 50,10 L50,32 Q50,48 32,58 Q14,48 14,32 Z" fill="{{primary}}"/>
-    <path d="M32,8 L32,58" stroke="{{accent}}" stroke-width="2"/>
-    <path d="M14,20 L50,20" stroke="{{secondary}}" stroke-width="2"/>
+  `<g>
+    <path d="M16,12 Q16,8 20,8 L44,8 Q48,8 48,12 L48,38 Q48,56 32,56 Q16,56 16,38 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <line x1="16" y1="28" x2="48" y2="28" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M32,6 Q46,8 48,18 Q44,42 32,60 Q20,42 16,18 Q18,8 32,6 Z" fill="{{primary}}"/>
-    <circle cx="32" cy="22" r="4" fill="{{accent}}"/>
-    <path d="M32,26 L32,50" stroke="{{secondary}}" stroke-width="2"/>
+  `<g>
+    <circle cx="32" cy="32" r="24" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <circle cx="32" cy="32" r="18" fill="none" stroke="{{neutral}}" stroke-width="2"/>
+    <circle cx="32" cy="32" r="5" fill="{{accent}}" stroke="{{neutral}}" stroke-width="2"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <circle cx="32" cy="32" r="26" fill="{{primary}}"/>
-    <circle cx="32" cy="32" r="18" stroke="{{secondary}}" stroke-width="2"/>
-    <circle cx="32" cy="32" r="6" fill="{{accent}}"/>
+  `<g>
+    <path d="M18,12 Q18,8 22,8 L42,8 Q46,8 46,12 L46,22 Q46,40 32,58 Q18,40 18,22 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <line x1="32" y1="14" x2="32" y2="52" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M12,6 L52,6 L52,50 Q52,58 32,60 Q12,58 12,50 Z" fill="{{primary}}"/>
-    <path d="M32,6 L32,60" stroke="{{secondary}}" stroke-width="2"/>
-    <path d="M12,18 L52,18" stroke="{{accent}}" stroke-width="2"/>
-    <path d="M12,42 L52,42" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <path d="M16,12 Q16,8 20,8 L44,8 Q48,8 48,12 L48,38 Q48,56 32,56 Q16,56 16,38 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <polyline points="20,24 32,36 44,24" fill="none" stroke="{{accent}}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M12,8 L52,8 L52,30 Q52,48 32,60 Q12,48 12,30 Z" fill="{{primary}}"/>
-    <path d="M32,14 L32,52" stroke="{{accent}}" stroke-width="3"/>
-    <path d="M16,22 L48,22" stroke="{{accent}}" stroke-width="3"/>
-    <circle cx="32" cy="22" r="3" fill="{{secondary}}"/>
+  `<g>
+    <path d="M16,12 Q16,8 20,8 L44,8 Q48,8 48,12 L48,38 Q48,56 32,56 Q16,56 16,38 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <line x1="32" y1="12" x2="32" y2="52" stroke="{{accent}}" stroke-width="3"/>
+    <line x1="16" y1="24" x2="48" y2="24" stroke="{{accent}}" stroke-width="3"/>
   </g>`,
 ] as const;

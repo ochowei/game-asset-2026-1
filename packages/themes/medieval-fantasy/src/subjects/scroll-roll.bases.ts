@@ -2,41 +2,40 @@
 // Source: packages/themes/medieval-fantasy/src/subjects/_assets/scroll-roll-*.svg
 
 export const scrollRollBases: readonly string[] = [
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="10" y="18" width="44" height="28" fill="{{primary}}"/>
-    <rect x="6" y="10" width="52" height="10" rx="3" ry="3" fill="{{secondary}}"/>
-    <rect x="6" y="44" width="52" height="10" rx="3" ry="3" fill="{{secondary}}"/>
-    <line x1="18" y1="28" x2="46" y2="28" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="18" y1="36" x2="46" y2="36" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <rect x="14" y="14" width="36" height="36" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <ellipse cx="32" cy="14" rx="18" ry="4" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <ellipse cx="32" cy="50" rx="18" ry="4" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="18" y1="26" x2="46" y2="26" stroke="{{accent}}" stroke-width="1"/>
+    <line x1="18" y1="38" x2="46" y2="38" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="18" y="10" width="28" height="44" fill="{{primary}}"/>
-    <rect x="10" y="6" width="10" height="52" rx="3" ry="3" fill="{{secondary}}"/>
-    <rect x="44" y="6" width="10" height="52" rx="3" ry="3" fill="{{secondary}}"/>
-    <line x1="28" y1="18" x2="28" y2="46" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="36" y1="18" x2="36" y2="46" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <rect x="14" y="14" width="36" height="36" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <ellipse cx="32" cy="14" rx="18" ry="4" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <ellipse cx="32" cy="50" rx="18" ry="4" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="18" y1="22" x2="46" y2="22" stroke="{{accent}}" stroke-width="1.5"/>
+    <line x1="18" y1="30" x2="46" y2="30" stroke="{{accent}}" stroke-width="1.5"/>
+    <line x1="18" y1="38" x2="46" y2="38" stroke="{{accent}}" stroke-width="1.5"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="14" y="20" width="36" height="28" fill="{{primary}}"/>
-    <ellipse cx="14" cy="34" rx="6" ry="14" fill="{{secondary}}"/>
-    <path d="M50,20 Q58,18 56,12 Q52,14 50,20 Z" fill="{{secondary}}"/>
-    <path d="M50,48 Q58,50 56,56 Q52,54 50,48 Z" fill="{{secondary}}"/>
-    <line x1="22" y1="30" x2="44" y2="30" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="22" y1="38" x2="44" y2="38" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <rect x="18" y="12" width="28" height="36" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <ellipse cx="32" cy="12" rx="14" ry="3" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <path d="M18,48 Q14,52 14,56 L20,56 Q24,52 24,48 Z" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <path d="M46,48 Q50,52 50,56 L44,56 Q40,52 40,48 Z" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="22" y1="24" x2="42" y2="24" stroke="{{accent}}" stroke-width="1"/>
+    <line x1="22" y1="34" x2="42" y2="34" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="6" y="22" width="52" height="20" fill="{{primary}}"/>
-    <path d="M6,22 Q4,32 6,42 Q14,42 14,32 Q14,22 6,22 Z" fill="{{secondary}}"/>
-    <path d="M58,22 Q60,32 58,42 Q50,42 50,32 Q50,22 58,22 Z" fill="{{secondary}}"/>
-    <line x1="18" y1="28" x2="46" y2="28" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="18" y1="32" x2="46" y2="32" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="18" y1="36" x2="46" y2="36" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <rect x="12" y="20" width="40" height="24" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <ellipse cx="12" cy="32" rx="4" ry="14" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <ellipse cx="52" cy="32" rx="4" ry="14" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="24" y1="24" x2="24" y2="40" stroke="{{accent}}" stroke-width="1"/>
+    <line x1="40" y1="24" x2="40" y2="40" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="20" y="8" width="24" height="48" fill="{{primary}}"/>
-    <rect x="16" y="6" width="32" height="6" rx="2" ry="2" fill="{{secondary}}"/>
-    <rect x="16" y="52" width="32" height="6" rx="2" ry="2" fill="{{secondary}}"/>
-    <rect x="14" y="28" width="36" height="8" fill="{{accent}}"/>
-    <line x1="22" y1="32" x2="42" y2="32" stroke="{{neutral}}" stroke-width="2"/>
+  `<g>
+    <rect x="14" y="14" width="36" height="36" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <ellipse cx="32" cy="14" rx="18" ry="4" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <ellipse cx="32" cy="50" rx="18" ry="4" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="10" y="30" width="44" height="4" fill="{{accent}}" stroke="{{neutral}}" stroke-width="1.5"/>
   </g>`,
 ] as const;

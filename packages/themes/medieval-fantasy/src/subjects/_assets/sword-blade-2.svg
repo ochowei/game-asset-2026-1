@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <polygon points="32,6 39,16 39,34 25,34 25,16" fill="{{primary}}"/>
-    <path d="M16,40 L20,34 L44,34 L48,40 Z" fill="{{secondary}}"/>
-    <rect x="29" y="40" width="6" height="11" fill="{{primary}}"/>
-    <ellipse cx="32" cy="54" rx="5" ry="4" fill="{{accent}}"/>
+  <g>
+    <polygon points="32,8 40,40 24,40" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="18" y="40" width="28" height="3" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="29.5" y="43" width="5" height="10" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <circle cx="32" cy="56" r="3.5" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
   </g>
 </svg>

@@ -2,35 +2,36 @@
 // Source: packages/themes/medieval-fantasy/src/subjects/_assets/gemstone-*.svg
 
 export const gemstoneBases: readonly string[] = [
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M32,8 L54,24 L32,58 L10,24 Z" fill="{{primary}}"/>
-    <line x1="10" y1="24" x2="54" y2="24" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="10" y1="24" x2="32" y2="58" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="54" y1="24" x2="32" y2="58" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="22" y1="24" x2="32" y2="8" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="42" y1="24" x2="32" y2="8" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <path d="M32,8 L52,28 L32,56 L12,28 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="12" y1="28" x2="52" y2="28" stroke="{{secondary}}" stroke-width="1"/>
+    <line x1="32" y1="8" x2="22" y2="28" stroke="{{secondary}}" stroke-width="1"/>
+    <line x1="32" y1="8" x2="42" y2="28" stroke="{{secondary}}" stroke-width="1"/>
+    <line x1="32" y1="56" x2="22" y2="28" stroke="{{secondary}}" stroke-width="1"/>
+    <line x1="32" y1="56" x2="42" y2="28" stroke="{{secondary}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <polygon points="32,8 54,20 54,44 32,56 10,44 10,20" fill="{{primary}}"/>
-    <line x1="10" y1="20" x2="32" y2="32" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="54" y1="20" x2="32" y2="32" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="10" y1="44" x2="32" y2="32" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="54" y1="44" x2="32" y2="32" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="32" y1="8" x2="32" y2="32" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="32" y1="56" x2="32" y2="32" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <polygon points="32,8 52,18 52,38 32,48 12,38 12,18" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="32" y1="28" x2="32" y2="8" stroke="{{secondary}}" stroke-width="1.2"/>
+    <line x1="32" y1="28" x2="52" y2="18" stroke="{{secondary}}" stroke-width="1.2"/>
+    <line x1="32" y1="28" x2="52" y2="38" stroke="{{secondary}}" stroke-width="1.2"/>
+    <line x1="32" y1="28" x2="32" y2="48" stroke="{{secondary}}" stroke-width="1.2"/>
+    <line x1="32" y1="28" x2="12" y2="38" stroke="{{secondary}}" stroke-width="1.2"/>
+    <line x1="32" y1="28" x2="12" y2="18" stroke="{{secondary}}" stroke-width="1.2"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <polygon points="32,6 50,32 32,58 14,32" fill="{{primary}}"/>
-    <line x1="14" y1="32" x2="50" y2="32" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <circle cx="32" cy="32" r="22" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <polygon points="32,12 50,40 14,40" fill="none" stroke="{{secondary}}" stroke-width="1.5"/>
+    <circle cx="32" cy="32" r="2" fill="{{accent}}"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M32,6 Q52,18 52,38 Q52,56 32,58 Q12,56 12,38 Q12,18 32,6 Z" fill="{{primary}}"/>
-    <ellipse cx="26" cy="22" rx="4" ry="6" fill="{{accent}}"/>
-    <line x1="20" y1="40" x2="44" y2="40" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <path d="M32,18 C28,8 14,12 16,28 C18,40 32,52 32,52 C32,52 46,40 48,28 C50,12 36,8 32,18 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="32" y1="18" x2="32" y2="50" stroke="{{secondary}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M6,32 Q18,16 32,16 Q46,16 58,32 Q46,48 32,48 Q18,48 6,32 Z" fill="{{primary}}"/>
-    <line x1="6" y1="32" x2="58" y2="32" stroke="{{accent}}" stroke-width="2"/>
-    <line x1="32" y1="16" x2="32" y2="48" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <polygon points="32,10 54,46 10,46" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="32" y1="10" x2="32" y2="34" stroke="{{secondary}}" stroke-width="1.5"/>
+    <line x1="54" y1="46" x2="32" y2="34" stroke="{{secondary}}" stroke-width="1.5"/>
+    <line x1="10" y1="46" x2="32" y2="34" stroke="{{secondary}}" stroke-width="1.5"/>
   </g>`,
 ] as const;

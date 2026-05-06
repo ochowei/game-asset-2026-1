@@ -2,38 +2,37 @@
 // Source: packages/themes/medieval-fantasy/src/subjects/_assets/sword-blade-*.svg
 
 export const swordBladeBases: readonly string[] = [
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <polygon points="32,5 36,11 36,37 28,37 28,11" fill="{{primary}}"/>
-    <rect x="18" y="37" width="28" height="4" fill="{{secondary}}"/>
-    <rect x="29" y="41" width="6" height="13" fill="{{primary}}"/>
-    <circle cx="32" cy="56" r="3" fill="{{accent}}"/>
-    <line x1="32" y1="11" x2="32" y2="36" stroke-width="1"/>
+  `<g>
+    <rect x="29" y="8" width="6" height="36" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="20" y="44" width="24" height="3" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="29.5" y="47" width="5" height="8" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <circle cx="32" cy="57" r="2.5" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="32" y1="10" x2="32" y2="42" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <polygon points="32,6 39,16 39,34 25,34 25,16" fill="{{primary}}"/>
-    <path d="M16,40 L20,34 L44,34 L48,40 Z" fill="{{secondary}}"/>
-    <rect x="29" y="40" width="6" height="11" fill="{{primary}}"/>
-    <ellipse cx="32" cy="54" rx="5" ry="4" fill="{{accent}}"/>
+  `<g>
+    <polygon points="32,8 40,40 24,40" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="18" y="40" width="28" height="3" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="29.5" y="43" width="5" height="10" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <circle cx="32" cy="56" r="3.5" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M48,8 Q26,16 24,40 L30,40 Q32,20 52,12 Z" fill="{{primary}}"/>
-    <rect x="16" y="40" width="22" height="4" fill="{{secondary}}"/>
-    <rect x="24" y="44" width="6" height="10" fill="{{primary}}"/>
-    <circle cx="27" cy="55" r="4" fill="{{accent}}"/>
+  `<g>
+    <rect x="29.5" y="10" width="5" height="22" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="24" y="32" width="16" height="3" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="29.5" y="35" width="5" height="12" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <circle cx="32" cy="51" r="4" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <polygon points="32,48 34,51 32,54 30,51" fill="{{accent}}"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <polygon points="32,4 36,9 36,33 28,33 28,9" fill="{{primary}}"/>
-    <line x1="32" y1="11" x2="32" y2="31" stroke-width="2"/>
-    <path d="M14,33 L20,38 L44,38 L50,33 L46,40 L18,40 Z" fill="{{secondary}}"/>
-    <rect x="30" y="40" width="4" height="13" fill="{{primary}}"/>
-    <path d="M28,53 Q32,47 36,53 Q34,59 32,59 Q30,59 28,53 Z" fill="{{accent}}"/>
+  `<g>
+    <rect x="28.5" y="6" width="7" height="32" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="17" y="38" width="30" height="3" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="29.5" y="41" width="5" height="14" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <ellipse cx="32" cy="57" rx="4" ry="3" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="32" y1="10" x2="32" y2="37" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <polygon points="32,5 34,10 34,38 30,38 30,10" fill="{{primary}}"/>
-    <rect x="20" y="38" width="24" height="3" fill="{{secondary}}"/>
-    <path d="M22,41 Q16,46 22,50" stroke-width="2"/>
-    <path d="M42,41 Q48,46 42,50" stroke-width="2"/>
-    <rect x="30" y="41" width="4" height="11" fill="{{primary}}"/>
-    <circle cx="32" cy="55" r="4" fill="{{accent}}"/>
+  `<g>
+    <polygon points="13.41,53.41 53.41,13.41 50.59,10.59 10.59,50.59" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <polygon points="50.59,53.41 53.41,50.59 13.41,10.59 10.59,13.41" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <polygon points="28.87,40.79 27.45,42.21 21.79,36.55 23.21,35.13" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <polygon points="35.13,40.79 36.55,42.21 42.21,36.55 40.79,35.13" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
   </g>`,
 ] as const;

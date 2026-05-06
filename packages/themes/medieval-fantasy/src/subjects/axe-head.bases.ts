@@ -2,31 +2,28 @@
 // Source: packages/themes/medieval-fantasy/src/subjects/_assets/axe-head-*.svg
 
 export const axeHeadBases: readonly string[] = [
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="28" y="6" width="6" height="54" fill="{{secondary}}"/>
-    <path d="M34,12 L52,16 L52,30 L34,28 Z" fill="{{primary}}"/>
-    <line x1="34" y1="20" x2="48" y2="22" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <line x1="32" y1="8" x2="32" y2="56" stroke="{{neutral}}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M32,14 L48,18 L48,28 L32,32 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="48" y1="18" x2="48" y2="28" stroke="{{accent}}" stroke-width="1.5"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="28" y="8" width="6" height="50" fill="{{secondary}}"/>
-    <path d="M34,12 L56,18 L56,30 L34,26 Z" fill="{{primary}}"/>
-    <path d="M28,18 L14,16 L10,28 L28,28 Z" fill="{{primary}}"/>
-    <line x1="36" y1="20" x2="52" y2="22" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <line x1="32" y1="8" x2="32" y2="56" stroke="{{neutral}}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M32,14 L48,18 L48,28 L32,30 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <path d="M32,16 L20,20 L20,26 L32,28 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="28" y="6" width="6" height="54" fill="{{secondary}}"/>
-    <path d="M34,12 L52,18 L52,28 L34,26 Z" fill="{{primary}}"/>
-    <path d="M28,18 L14,14 L10,18 L20,22 L28,22 Z" fill="{{accent}}"/>
-    <line x1="36" y1="20" x2="48" y2="22" stroke="{{neutral}}" stroke-width="2"/>
+  `<g>
+    <line x1="32" y1="10" x2="32" y2="54" stroke="{{neutral}}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M32,14 L48,18 L48,28 L32,30 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <path d="M32,18 L18,22 L18,24 L32,26 Z" fill="{{accent}}" stroke="{{neutral}}" stroke-width="2"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="28" y="6" width="6" height="54" fill="{{secondary}}"/>
-    <path d="M34,10 L50,14 L54,30 L44,42 L34,40 Z" fill="{{primary}}"/>
-    <line x1="36" y1="22" x2="48" y2="26" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <line x1="32" y1="8" x2="32" y2="56" stroke="{{neutral}}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M32,12 L46,14 L48,22 L48,32 L40,40 L32,38 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
   </g>`,
-  `<g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="28" y="22" width="6" height="36" fill="{{secondary}}"/>
-    <path d="M34,18 L50,22 L48,32 L34,30 Z" fill="{{primary}}"/>
-    <line x1="36" y1="24" x2="46" y2="26" stroke="{{accent}}" stroke-width="2"/>
+  `<g>
+    <line x1="32" y1="22" x2="32" y2="54" stroke="{{neutral}}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M32,22 L46,24 L46,34 L32,36 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <line x1="46" y1="24" x2="46" y2="34" stroke="{{accent}}" stroke-width="1"/>
   </g>`,
 ] as const;
