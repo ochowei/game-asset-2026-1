@@ -1,6 +1,11 @@
 # Procforge Icons
 
-> 200 hand-coded procedural game icons + open-source generator. No AI, infinite variants, MIT-licensed.
+**200 deterministic SVG game icons across 4 themes. Same seed, same icon, every time. Offline. MIT.**
+
+Three pillars:
+- **Deterministic Runtime** — `(theme, seed)` produces byte-identical SVG output. No API calls, no network, no nondeterminism.
+- **Procedural Variation** — palette × decoration × transform variation expanded from a small set of designed bases.
+- **Open-source Generator** — MIT-licensed code, prompts, palettes, and committed bases. Readable end-to-end.
 
 [![CI](https://github.com/procforge/icons/actions/workflows/ci.yml/badge.svg)](https://github.com/procforge/icons/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -18,9 +23,13 @@ A TypeScript monorepo that procedurally generates SVG game icons across 4 themes
 
 The output is a `starter-pack.zip` containing 200 SVG + PNG icons, free to use under MIT (commercial use OK).
 
-## Why it exists
+## AI involvement (v1.4.0)
 
-itch.io's new-uploads feed is being flooded with AI-generated assets. Procforge is the opposite: every icon comes from hand-written algorithms you can read, fork, and re-run.
+The medieval-fantasy theme's base SVGs (`packages/themes/medieval-fantasy/src/subjects/_assets/*.svg`) are LLM-generated under human curation. The other 3 themes (sci-fi, cozy-farm, roguelike-inventory) use hand-coded primitives.
+
+No AI is invoked at runtime. Buyers running the CLI or library get fully deterministic, offline output. The committed prompt template (`scripts/ai-base-prompt.md`) and authoring pipeline are documented in `docs/AI-AUTHORING.md`.
+
+In jurisdictions where AI-generated content is uncopyrightable, those portions of the icon output are de facto in the public domain — which is more permissive than MIT and friendly to commercial downstream use.
 
 ## Quick start (use the icons)
 
