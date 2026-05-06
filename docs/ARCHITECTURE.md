@@ -51,6 +51,27 @@ Either:
 
 Therefore the SVG output is byte-identical across runs given the same theme module. This guarantee breaks when a theme's primitives, composers, or palette change.
 
+## Authoring vs runtime split (v1.4.0)
+
+For themes that use the Path B authoring model (medieval-fantasy as of v1.4.0), the generation pipeline has two distinct phases separated by a commit boundary:
+
+**Authoring time** (run by the theme author, one-time per base):
+- LLM generates candidate SVG bases.
+- Author curates per `docs/AI-AUTHORING.md`.
+- Curated SVGs committed to `packages/themes/<theme>/src/subjects/_assets/`.
+- `pnpm build:bases` (via `scripts/build-bases.ts`) converts each `_assets/*.svg` to a TypeScript module exporting the SVG body string array.
+- Both the SVGs and the generated `*.bases.ts` modules are committed.
+
+**Runtime** (run in the buyer's process, every `generateOne` call):
+- Standard seeded RNG flow as before.
+- The subject primitive imports its `*Bases` array, calls `applyBaseVariation(rng, bases, palette, size, opts)`.
+- `applyBaseVariation`: picks a base via RNG, replaces `{{role}}` tokens with palette colours via RNG-driven `pickColor`, applies a light `<g transform="...">` (rotate ±8°, uniform scale 0.95–1.05, optional mirror), returns the SVG fragment.
+- No file I/O, no network, no AI. Determinism contract `(theme, seed) → byte-identical SVG` preserved.
+
+The only thing that crosses the commit boundary from authoring to runtime is the committed SVG content. AI involvement is bounded to the authoring side.
+
+For themes still on the Path A hand-coded model (sci-fi, cozy-farm, roguelike-inventory as of v1.4.0), the authoring/runtime distinction collapses: the engineer writes the geometry directly in the primitive function.
+
 ## Why TypeScript and not Python/Rust
 
 - The generator must run in the browser (for the itch HTML5 embed) and in Node (for the CLI). One language, one codebase.
@@ -88,5 +109,7 @@ Therefore the SVG output is byte-identical across runs given the same theme modu
 The deterministic-output guarantee is byte-stable from a baseline. Adding or changing primitives, composers, or palette entries in any theme breaks the byte-identity for that theme — `(theme.id, seed)` after the change will produce a different SVG than before.
 
 The current baseline is **v1.3.0** (Lucide-aligned base shapes — Path A from `docs/FUTURE-WORK.md`). Each of the 24 subject primitives was retuned so its geometry matches the visual register of a Lucide reference icon, while preserving the v1.2.0 affordance hints, primitive contract, and RNG consumption order. The v1.2.0 baseline (recognisability pass — fixed affordance hints, boosted subject strokes, narrowed RNG jitter, tightened decoration distribution) is superseded; seeds against v1.2.0 produce different SVG against v1.3.0+. Earlier baselines (v1.1.0 theme-specific subjects, pre-v1.1.0 abstract output) are also not regenerable from the same seeds.
+
+**v1.4.0 baseline reset (medieval-fantasy only):** medieval-fantasy was converted to Path B (AI-designed bases + procedural variation) in v1.4.0. Its byte output for any given seed differs from v1.3.x. The other three themes (sci-fi, cozy-farm, roguelike-inventory) remain on Path A with their v1.3.0 baselines unchanged — seeds against those three themes produce identical SVG before and after v1.4.0.
 
 Future theme-content changes (palette tweaks, new primitives) reset the baseline again. Document any baseline reset in CHANGELOG / release notes so buyers who depend on specific seeds are aware.
