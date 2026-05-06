@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M26,8 L38,8 L38,22 Q50,32 50,46 Q50,58 32,58 Q14,58 14,46 Q14,32 26,22 Z" fill="{{primary}}"/>
+    <path d="M14,46 Q32,40 50,46" stroke="{{accent}}" stroke-width="2" fill="none"/>
+    <rect x="24" y="4" width="16" height="6" fill="{{secondary}}"/>
+  </g>
+</svg>

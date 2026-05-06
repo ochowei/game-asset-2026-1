@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M28,14 L36,14 L36,22 Q52,30 52,44 Q52,58 32,58 Q12,58 12,44 Q12,30 28,22 Z" fill="{{primary}}"/>
+    <path d="M12,40 Q22,34 32,40 Q42,46 52,40" stroke="{{accent}}" stroke-width="2" fill="none"/>
+    <circle cx="22" cy="46" r="2" fill="{{accent}}"/>
+    <circle cx="40" cy="50" r="2" fill="{{accent}}"/>
+    <rect x="26" y="8" width="12" height="6" fill="{{secondary}}"/>
+  </g>
+</svg>
