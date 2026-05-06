@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M32,6 Q46,8 48,18 Q44,42 32,60 Q20,42 16,18 Q18,8 32,6 Z" fill="{{primary}}"/>
+    <circle cx="32" cy="22" r="4" fill="{{accent}}"/>
+    <path d="M32,26 L32,50" stroke="{{secondary}}" stroke-width="2"/>
+  </g>
+</svg>
