@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M32,8 L54,24 L32,58 L10,24 Z" fill="{{primary}}"/>
+    <line x1="10" y1="24" x2="54" y2="24" stroke="{{accent}}" stroke-width="2"/>
+    <line x1="10" y1="24" x2="32" y2="58" stroke="{{accent}}" stroke-width="2"/>
+    <line x1="54" y1="24" x2="32" y2="58" stroke="{{accent}}" stroke-width="2"/>
+    <line x1="22" y1="24" x2="32" y2="8" stroke="{{accent}}" stroke-width="2"/>
+    <line x1="42" y1="24" x2="32" y2="8" stroke="{{accent}}" stroke-width="2"/>
+  </g>
+</svg>

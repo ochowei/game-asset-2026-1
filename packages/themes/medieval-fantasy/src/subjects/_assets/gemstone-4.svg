@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g fill="none" stroke="{{neutral}}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M32,6 Q52,18 52,38 Q52,56 32,58 Q12,56 12,38 Q12,18 32,6 Z" fill="{{primary}}"/>
+    <ellipse cx="26" cy="22" rx="4" ry="6" fill="{{accent}}"/>
+    <line x1="20" y1="40" x2="44" y2="40" stroke="{{accent}}" stroke-width="2"/>
+  </g>
+</svg>
