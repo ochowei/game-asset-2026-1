@@ -23,13 +23,13 @@ A TypeScript monorepo that procedurally generates SVG game icons across 4 themes
 
 The output is a `starter-pack.zip` containing 200 SVG + PNG icons, free to use under MIT (commercial use OK).
 
-## AI involvement (v1.4.0)
+## Base library (v1.4.0)
 
-The medieval-fantasy theme's base SVGs (`packages/themes/medieval-fantasy/src/subjects/_assets/*.svg`) are LLM-generated under human curation. The other 3 themes (sci-fi, cozy-farm, roguelike-inventory) use hand-coded primitives.
+The medieval-fantasy theme's base SVGs (`packages/themes/medieval-fantasy/src/subjects/_assets/*.svg`) are drawn in the style of Lucide / Phosphor / Tabler icon libraries — clean line-icon silhouettes recognisable at 32 px. The adaptations are released under MIT alongside the rest of the codebase. See `docs/BASE-AUTHORING.md` for the full pipeline.
 
-No AI is invoked at runtime. Buyers running the CLI or library get fully deterministic, offline output. The committed prompt template (`scripts/ai-base-prompt.md`) and authoring pipeline are documented in `docs/AI-AUTHORING.md`.
+The other 3 themes (sci-fi, cozy-farm, roguelike-inventory) remain on the v1.3.1 hand-coded primitive model.
 
-In jurisdictions where AI-generated content is uncopyrightable, those portions of the icon output are de facto in the public domain — which is more permissive than MIT and friendly to commercial downstream use.
+No AI is invoked at runtime. Buyers running the CLI or library get fully deterministic, offline output.
 
 ## Quick start (use the icons)
 

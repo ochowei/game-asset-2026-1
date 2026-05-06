@@ -11,12 +11,11 @@
 
 ### Architecture: Path B for medieval-fantasy
 
-- medieval-fantasy theme converted from hand-coded primitives to AI-designed base SVGs varied at runtime by procgen.
-- 30 new base SVGs (5 per subject × 6 subjects) committed under `packages/themes/medieval-fantasy/src/subjects/_assets/`.
+- medieval-fantasy theme converted from hand-coded primitives to file-based SVG bases varied at runtime by procgen.
+- 30 new base SVGs (5 per subject × 6 subjects) committed under `packages/themes/medieval-fantasy/src/subjects/_assets/`. Bases are drawn in Lucide-style line-icon aesthetic — silhouette-distinct per subject, palette-substituted at runtime.
 - New core helper `applyBaseVariation` (`@procforge/core`).
 - New build step `pnpm build:bases` (`scripts/build-bases.ts`) — runs as part of `pnpm build`.
 - New manual curation tool `scripts/qa-base-preview.ts`.
-- Committed prompt template `scripts/ai-base-prompt.md` for transparency.
 - 6 medieval-fantasy primitive `.ts` files reduced from ~50 LOC each to ~10 LOC; tests rewritten to assert base presence + palette substitution + transform bounds.
 
 ### Other 3 themes
@@ -29,7 +28,7 @@ medieval-fantasy SVG output is byte-different from v1.3.1 for the same seed, by 
 
 ### Documentation
 
-- New: `docs/AI-AUTHORING.md` — authoring pipeline manual.
+- New: `docs/BASE-AUTHORING.md` — authoring pipeline manual.
 - New: `docs/superpowers/specs/2026-05-06-path-b-v1.4.0-design.md` — design spec.
 - New: `docs/superpowers/plans/2026-05-06-path-b-v1.4.0.md` — implementation plan.
 - Updated: `docs/THEME-AUTHORING.md`, `docs/ARCHITECTURE.md`, `docs/FUTURE-WORK.md`, `README.md`.

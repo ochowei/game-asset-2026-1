@@ -56,8 +56,8 @@ Therefore the SVG output is byte-identical across runs given the same theme modu
 For themes that use the Path B authoring model (medieval-fantasy as of v1.4.0), the generation pipeline has two distinct phases separated by a commit boundary:
 
 **Authoring time** (run by the theme author, one-time per base):
-- LLM generates candidate SVG bases.
-- Author curates per `docs/AI-AUTHORING.md`.
+- Author drafts candidate SVG bases (typically inspired by open-source icon libraries like Lucide / Phosphor / Tabler, adapted to the 64-viewBox conventions).
+- Author curates per `docs/BASE-AUTHORING.md`.
 - Curated SVGs committed to `packages/themes/<theme>/src/subjects/_assets/`.
 - `pnpm build:bases` (via `scripts/build-bases.ts`) converts each `_assets/*.svg` to a TypeScript module exporting the SVG body string array.
 - Both the SVGs and the generated `*.bases.ts` modules are committed.

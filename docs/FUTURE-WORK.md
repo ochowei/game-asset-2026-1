@@ -92,7 +92,9 @@ For each of the 24 primitives:
 
 ## Path B — Hand-designed base SVG + procedural variation
 
-> **Status:** ⚠️ **Partial — single-theme pilot shipped as v1.4.0** (2026-05-06). medieval-fantasy theme converted to Path B. sci-fi / cozy-farm / roguelike-inventory remain on Path A. Brand pillars restructured to Deterministic Runtime / Procedural Variation / Open-source Generator (the original "No AI" pillar was removed; rationale in `docs/superpowers/specs/2026-05-06-path-b-v1.4.0-design.md`).
+> **Status:** ⚠️ **Partial — single-theme pilot shipped as v1.4.0** (2026-05-06). medieval-fantasy theme converted to Path B with file-based bases drawn in Lucide-style aesthetic. sci-fi / cozy-farm / roguelike-inventory remain on Path A. Brand pillars restructured to Deterministic Runtime / Procedural Variation / Open-source Generator (the original "No AI" pillar was removed; rationale in `docs/superpowers/specs/2026-05-06-path-b-v1.4.0-design.md`).
+>
+> Note on the journey: the v1.4.0 PR went through one rejected iteration of LLM-generated bases (PR review identified design drift) before settling on Lucide-style hand-drawn bases. The architecture (file-based bases + applyBaseVariation + procgen variation) is independent of the base-authoring method; future themes may use AI generation, hand-drawing, or icon-library adaptation as fits the author's workflow.
 >
 > Remaining themes are candidates for follow-up minor releases (v1.5.0–v1.7.0) using the same pipeline.
 
