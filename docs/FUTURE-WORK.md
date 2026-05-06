@@ -92,6 +92,10 @@ For each of the 24 primitives:
 
 ## Path B — Hand-designed base SVG + procedural variation
 
+> **Status:** ⚠️ **Partial — single-theme pilot shipped as v1.4.0** (2026-05-06). medieval-fantasy theme converted to Path B. sci-fi / cozy-farm / roguelike-inventory remain on Path A. Brand pillars restructured to Deterministic Runtime / Procedural Variation / Open-source Generator (the original "No AI" pillar was removed; rationale in `docs/superpowers/specs/2026-05-06-path-b-v1.4.0-design.md`).
+>
+> Remaining themes are candidates for follow-up minor releases (v1.5.0–v1.7.0) using the same pipeline.
+
 ### Premise
 
 Path A still has each primitive **fully described in code**: the engineer (or Lucide reference, in Path A) writes the SVG path coordinates inline. The expressiveness ceiling is bounded by what a single function body of TS can describe. Path B breaks that ceiling by **separating the "base shape" from the "variation logic"**:
@@ -155,6 +159,8 @@ A clean reframing: replace "100% Procedural" with **"Designer-seeded procedural"
 | Reversibility | Harder — requires unwinding the build pipeline. But the per-primitive TS files can be regenerated from base SVGs if anything goes wrong. |
 
 ### Hard constraint: no AI-generated bases
+
+> **Update (v1.4.0):** This constraint was lifted as part of the v1.4.0 brainstorming (see `docs/superpowers/specs/2026-05-06-path-b-v1.4.0-design.md` § 1). The "No AI" brand pillar was removed and replaced with "Deterministic Runtime". The discipline is now "AI in studio (authoring), procgen at runtime", not "no AI anywhere". The unacceptability list below is preserved as historical context for the original spec.
 
 This is non-negotiable for brand consistency. Spec §6.1 sells "No AI" as a competitive differentiator against the AI-flooded itch new-release stream (§2.2). Using Claude / Midjourney / DALL·E / Stable Diffusion etc. to generate base SVGs would void that positioning, and once a single AI-generated base is committed to the repo the trust is gone.
 
