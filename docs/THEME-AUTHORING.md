@@ -2,6 +2,20 @@
 
 A theme is a small TypeScript package that registers a palette, a set of primitives, and a set of composers. The generator picks a composer per icon, which in turn picks primitives.
 
+## Two authoring paths
+
+As of v1.4.0 there are two valid ways to author a theme's subject primitives:
+
+### Path A — Hand-coded primitives (v1.3.1 model, used by sci-fi / cozy-farm / roguelike-inventory)
+
+Each subject is a TypeScript function that constructs SVG geometry inline using core primitives (`circle`, `polygon`, `path`, `star`) and seeded RNG draws (`range`, `pick`, `pickColor`). See the rest of this document.
+
+### Path B — File-based bases (v1.4.0 model, used by medieval-fantasy)
+
+Each subject is a thin TypeScript function that delegates to `applyBaseVariation` from `@procforge/core`, picking from 5 author-drafted SVG bases stored in `_assets/`. See `docs/BASE-AUTHORING.md` for the full pipeline. Recommended base sources include open-source icon libraries (Lucide, Phosphor, Tabler) adapted to the 64-viewBox conventions, or hand-drawn shapes.
+
+Both paths are first-class. New themes may choose either based on author bandwidth and design preferences. Mixing paths within a single theme is not supported (a theme is either fully Path A or fully Path B).
+
 ## 1. Bootstrap a package
 
 Create `packages/themes/<your-theme>/` with these files:

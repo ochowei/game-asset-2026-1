@@ -9,7 +9,7 @@ import { cozyFarm } from '@procforge/theme-cozy-farm';
 import { roguelikeInventory } from '@procforge/theme-roguelike-inventory';
 import JSZip from 'jszip';
 
-const PACK_VERSION = '1.3.1';
+const PACK_VERSION = '1.4.2';
 const THEMES: Theme[] = [medievalFantasy, sciFi, cozyFarm, roguelikeInventory];
 const ICONS_PER_THEME = 50;
 const SIZES = [16, 32, 64, 128, 256];
@@ -63,20 +63,33 @@ async function main(): Promise<void> {
   const galleryRows = THEMES.map((t) => {
     const icons = allIcons.filter((i) => i.theme === t.id);
     const cells = icons
-      .map((i) => `<img src="${i.svg}" title="${i.seed}" alt="${i.seed}">`)
+      .map((i, idx) => {
+        const num = String(idx + 1).padStart(2, '0');
+        return `<figure><img src="${i.svg}" title="${i.seed}" alt="${i.seed}"><figcaption>${num}<span class="seed">${i.seed}</span></figcaption></figure>`;
+      })
       .join('');
     return `<section><h2>${t.displayName} <small>(${icons.length})</small></h2><div class="grid">${cells}</div></section>`;
   }).join('');
   const html = `<!doctype html><html><head><meta charset="utf-8">
-<title>Procforge Icons — Starter Pack</title><style>
+<title>Procforge Icons — Starter Pack v${PACK_VERSION}</title><style>
 body{margin:0;background:#1a1a2e;color:#e6e6e6;font-family:system-ui,sans-serif;padding:16px}
+header{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+header h1{margin:0;font-size:20px}
+header .ver{display:inline-block;padding:2px 8px;background:#3a3a5a;color:#fff;border-radius:4px;font-size:12px;font-weight:600}
+header p{margin:0;color:#aaa;font-size:13px}
 section{margin-bottom:24px}
 h2{color:#fff} small{color:#888;font-weight:normal}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:6px}
+figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px}
 .grid img{background:#fff;border-radius:4px;width:100%;aspect-ratio:1;padding:4px;box-sizing:border-box}
+figcaption{font-size:10px;color:#bbb;line-height:1.2;text-align:center;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+figcaption .seed{display:block;color:#666;font-size:9px}
 </style></head><body>
+<header>
 <h1>Procforge Icons — 200 procedural game icons</h1>
+<span class="ver">v${PACK_VERSION}</span>
 <p>MIT licensed. Generator on GitHub.</p>
+</header>
 ${galleryRows}
 </body></html>`;
   await writeFile(join(OUT_DIR, 'index.html'), html, 'utf8');

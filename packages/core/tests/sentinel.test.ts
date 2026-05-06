@@ -3,6 +3,6 @@ import { VERSION } from '../src/index';
 
 describe('sentinel', () => {
   it('exports VERSION', () => {
-    expect(VERSION).toBe('0.1.0');
+    expect(VERSION).toBe('1.4.2');
   });
 });

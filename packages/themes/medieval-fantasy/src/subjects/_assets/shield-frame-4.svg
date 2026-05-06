@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g>
+    <path d="M16,12 Q16,8 20,8 L44,8 Q48,8 48,12 L48,38 Q48,56 32,56 Q16,56 16,38 Z" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <polyline points="20,24 32,36 44,24" fill="none" stroke="{{accent}}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</svg>

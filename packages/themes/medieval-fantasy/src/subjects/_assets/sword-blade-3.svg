@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g>
+    <rect x="29.5" y="10" width="5" height="22" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="24" y="32" width="16" height="3" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="29.5" y="35" width="5" height="12" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <circle cx="32" cy="51" r="4" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <polygon points="32,48 34,51 32,54 30,51" fill="{{accent}}"/>
+  </g>
+</svg>

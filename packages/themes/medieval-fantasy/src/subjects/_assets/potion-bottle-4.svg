@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g>
+    <rect x="22" y="8" width="20" height="8" fill="{{neutral}}" stroke="{{neutral}}" stroke-width="2"/>
+    <path d="M22,22 L26,16 L38,16 L42,22 Z" fill="{{secondary}}" stroke="{{neutral}}" stroke-width="2"/>
+    <rect x="18" y="22" width="28" height="34" fill="{{primary}}" stroke="{{neutral}}" stroke-width="2.5"/>
+    <rect x="22" y="32" width="20" height="10" fill="none" stroke="{{accent}}" stroke-width="1"/>
+  </g>
+</svg>

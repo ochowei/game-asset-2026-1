@@ -1,6 +1,6 @@
 {
   "name": "procforge",
-  "version": "0.1.0",
+  "version": "1.4.2",
   "private": true,
   "type": "module",
   "engines": {
@@ -8,7 +8,8 @@
   },
   "packageManager": "pnpm@9.12.0",
   "scripts": {
-    "build": "pnpm -r --filter './packages/**' build",
+    "build": "pnpm build:bases && pnpm -r --filter './packages/**' build",
+    "build:bases": "tsx scripts/build-bases.ts",
     "test": "pnpm -r --filter './packages/**' test",
     "typecheck": "pnpm -r --filter './packages/**' typecheck",
     "lint": "eslint .",

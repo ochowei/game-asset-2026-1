@@ -1,5 +1,53 @@
 # Changelog
 
+## v1.4.2 — 2026-05-06
+
+### medieval-fantasy subject reduction (4 subjects)
+
+- Removed `axe-head` and `scroll-roll` primitives + their 10 base SVGs + their tests. Both subjects failed visual QA at 32 px (axe blade silhouettes read as flagpoles; scroll roll-end + parchment composition read as banded barrels). The pattern was geometrically dense in ways that don't reduce well to 32 px.
+- Final medieval-fantasy subject list: **sword, shield, potion, gem** (4 subjects × 5 bases = 20 bases).
+- Theme tags updated: `['weapon', 'potion', 'shield', 'gem', 'rpg', 'fantasy']` (replaced 'scroll').
+- Pack still ships 50 medieval-fantasy icons per pack — procgen now picks among 4 primitives instead of 6, so each subject appears more frequently per pack.
+- Determinism baseline reset for medieval-fantasy (subject pool changed → byte output changes for same seed).
+
+### Pre-release iterations bundled into this entry
+
+- v1.4.1 (gallery labels): starter-pack `index.html` shows version badge and per-icon numbered labels (01–50) plus seed for screenshot annotation.
+- v1.4.0–v1.4.1 base iterations: two rounds of base redesign (AI-generated → Lucide-style hand-drawn → head-dominant axes + corner-curl scrolls). The axe and scroll redesigns improved at 64 px but did not reach 32 px legibility — leading to the v1.4.2 subject reduction.
+
+## v1.4.0 — 2026-05-06
+
+### Brand pillar restructure
+
+- Removed: "No AI" pillar.
+- Renamed: "100% Procedural" → "Procedural Variation".
+- Added: "Deterministic Runtime" — `(theme, seed)` produces byte-identical SVG, no API calls, no network.
+- Three pillars going forward: **Deterministic Runtime / Procedural Variation / Open-source Generator**.
+
+### Architecture: Path B for medieval-fantasy
+
+- medieval-fantasy theme converted from hand-coded primitives to file-based SVG bases varied at runtime by procgen.
+- 30 new base SVGs (5 per subject × 6 subjects) committed under `packages/themes/medieval-fantasy/src/subjects/_assets/`. Bases are drawn in Lucide-style line-icon aesthetic — silhouette-distinct per subject, palette-substituted at runtime.
+- New core helper `applyBaseVariation` (`@procforge/core`).
+- New build step `pnpm build:bases` (`scripts/build-bases.ts`) — runs as part of `pnpm build`.
+- New manual curation tool `scripts/qa-base-preview.ts`.
+- 6 medieval-fantasy primitive `.ts` files reduced from ~50 LOC each to ~10 LOC; tests rewritten to assert base presence + palette substitution + transform bounds.
+
+### Other 3 themes
+
+- sci-fi, cozy-farm, roguelike-inventory unchanged. They remain on the v1.3.1 hand-coded primitive model. Determinism baselines for those themes are unchanged from v1.3.1.
+
+### Determinism note
+
+medieval-fantasy SVG output is byte-different from v1.3.1 for the same seed, by design (the bases are entirely new shapes). The determinism contract `(theme, seed) → byte-identical` is preserved going forward from v1.4.0. Downstream consumers who pinned specific medieval-fantasy seed outputs will need to refresh.
+
+### Documentation
+
+- New: `docs/BASE-AUTHORING.md` — authoring pipeline manual.
+- New: `docs/superpowers/specs/2026-05-06-path-b-v1.4.0-design.md` — design spec.
+- New: `docs/superpowers/plans/2026-05-06-path-b-v1.4.0.md` — implementation plan.
+- Updated: `docs/THEME-AUTHORING.md`, `docs/ARCHITECTURE.md`, `docs/FUTURE-WORK.md`, `README.md`.
+
 ## v1.3.1 — 2026-05-05 (post-release visual + metadata fixes)
 
 ### Breaking — determinism baseline reset (composer-wide)
